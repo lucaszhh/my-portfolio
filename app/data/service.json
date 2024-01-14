@@ -1,0 +1,17 @@
+[
+    {
+        "id":"1",
+        "icon":"fa-solid fa-briefcase",
+        "description":"web development using various programming languages"
+    },
+    {
+        "id":"2",
+        "icon":"fa-solid fa-bong",
+        "description":"web page design and development of site functionality to meet user needs."
+    },
+    {
+        "id":"3",
+        "icon":"fa-solid fa-brain",
+        "description":"development of new functionalities to an existing web page"
+    }
+]
