@@ -1,14 +1,14 @@
-import Image from 'next/image'
-import Dashboard from './components/Dashboard'
-import Header from './components/Header'
-import Aside from './components/Aside'
+import Layout from "@/Layout"
+import Dashboard from "@/components/Dashboard"
+import Aside from "@/components/Aside"
+import Badge from "@/components/Badge"
 
 export default function Home() {
   return (
-    <main>
-      <Header/>
-      <Aside/>
+    <Layout>
+      <Badge/>
+      <Aside />
       <Dashboard/>
-    </main>
+    </Layout>
   )
 }

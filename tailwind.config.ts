@@ -3,6 +3,7 @@ const colors = require("tailwindcss/colors");
 const config: Config = {
   content: [
     "./src/**/*.{js,ts,jsx,tsx}",
+    "./app/**/*.{js,ts,jsx,tsx}",
     "./node_modules/@tremor/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
@@ -124,5 +125,6 @@ const config: Config = {
     },
   ],
   plugins: [require("@headlessui/tailwindcss")],
+  darkMode: "class"
 }
 export default config

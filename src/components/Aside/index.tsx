@@ -17,19 +17,6 @@ const Aside = () => {
                     </div>
                 </div>
             </section>
-            <section>
-                <h2>Skills and Technologies</h2>
-                <div>
-                    <div>
-                        <i></i>
-                        <p>HTML</p>
-                    </div>
-                    <div>
-                        <i></i>
-                        <p>CSS</p>
-                    </div>
-                </div>
-            </section>
         </aside>
     )
 }
