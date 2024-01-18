@@ -8,16 +8,8 @@ const Header = () => {
 
     return (
         <header className="container flex flex-col justify-center items-center w-full ">
-            <nav className="flex  w-full p-2 my-4 text-xl justify-between">
+            <nav className="flex  w-full my-4 text-xl justify-between">
                 <Avatar />
-
-                {/*                     <Button size="xs" variant="secondary">
-                        <i className="fa-brands fa-github text-xl"></i>
-                    </Button>
-                    <Button size="xs" variant="secondary" >
-                        <i className="fa-brands fa-linkedin text-xl"></i>
-                    </Button> */}
-                {/* <img src="" alt="" /> */}
                 <div className="flex items-center justify-center gap-2">
                     {darkMode ? 
                     <ButtonSecondary onClick={handleDarkMode} description={<Sun/>} />

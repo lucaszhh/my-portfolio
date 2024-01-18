@@ -1,14 +1,14 @@
 import Layout from "@/Layout"
-import Dashboard from "@/components/Dashboard"
-import Aside from "@/components/Aside"
 import Badge from "@/components/Badge"
+import Experience from "@/components/Experience"
+import Proyects from "@/components/Proyects"
 
 export default function Home() {
   return (
     <Layout>
       <Badge/>
-      <Aside />
-      <Dashboard/>
+      <Experience/>
+      <Proyects/>
     </Layout>
   )
 }
