@@ -1,5 +1,5 @@
 import {  ButtonSecondaryIcon } from "../Button"
-import { Github, Linkedin } from "../Icons"
+import { Github, Linkedin, Mail } from "../Icons"
 import "./badge.css"
 const Badge = () => {
     return (
@@ -10,6 +10,7 @@ const Badge = () => {
                 <div className="flex gap-4">
                     <ButtonSecondaryIcon icon={<Github />} description="GitHub" />
                     <ButtonSecondaryIcon icon={<Linkedin />} description="Linkedin" />
+                    <ButtonSecondaryIcon icon={<Mail />} description="Mail" />
                 </div>
             </section>
             <section className=" drop-shadow-lg  row-span-1 col-span-6 rounded-3xl bg-white relative flex flex-col overflow-hidden border  gap-2 p-4 dark:bg-black xl:col-span-2 lg:px-8">
