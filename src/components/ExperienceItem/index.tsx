@@ -17,8 +17,8 @@ const ExperienceItem = ({ title, description, link, date }: Props) => {
             </div>
             <time
                 className="mb-1 text-sm font-normal leading-none text-sky-800 dark:text-sky-200/80"
-            >{date}</time
-            >
+            >{date}
+            </time>
             <h3 className="text-lg font-semibold text-yellow-800 dark:text-yellow-200 mt-2">
                 {title}
             </h3>
