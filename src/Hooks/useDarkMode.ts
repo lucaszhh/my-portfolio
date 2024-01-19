@@ -1,14 +1,23 @@
-"use client"
-import { useState } from 'react'
+// useDarkMode.ts
+import { useEffect, useState } from 'react';
 
 const useDarkMode = () => {
-    const [darkMode, setDarkMode] = useState(false)
+  const storedDarkMode = localStorage.getItem('darkMode') === 'true';
+  
+  const [darkMode, setDarkMode] = useState(storedDarkMode);
 
-    const handleDarkMode = () => {
-        document.documentElement.classList.toggle('dark')
-        setDarkMode(!darkMode)
-    }
-    return { darkMode, handleDarkMode }
-}
+  const handleDarkMode = () => {
+    const newDarkMode = !darkMode;
+    localStorage.setItem('darkMode', String(newDarkMode));
+    document.documentElement.classList.toggle('dark', newDarkMode);
+    setDarkMode(newDarkMode);
+  };
 
-export default useDarkMode
+  useEffect(() => {
+    document.documentElement.classList.toggle('dark', darkMode);
+  }, [darkMode]);
+
+  return { darkMode, handleDarkMode };
+};
+
+export default useDarkMode;
