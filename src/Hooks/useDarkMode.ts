@@ -2,13 +2,18 @@
 import { useEffect, useState } from 'react';
 
 const useDarkMode = () => {
-  const storedDarkMode = localStorage.getItem('darkMode') === 'true';
-  
+  const canUseLocalStorage = typeof window !== 'undefined' && window.localStorage;
+  const storedDarkMode = canUseLocalStorage ? localStorage.getItem('darkMode') === 'true' : false;
+
   const [darkMode, setDarkMode] = useState(storedDarkMode);
 
   const handleDarkMode = () => {
     const newDarkMode = !darkMode;
-    localStorage.setItem('darkMode', String(newDarkMode));
+
+    if (canUseLocalStorage) {
+      localStorage.setItem('darkMode', String(newDarkMode));
+    }
+
     document.documentElement.classList.toggle('dark', newDarkMode);
     setDarkMode(newDarkMode);
   };
