@@ -1,7 +1,7 @@
 import Layout from "@/Layout"
 import Avatar from "@/components/Avatar"
-import { Button, ButtonSecondary, ButtonIcon, ButtonSecondaryIcon } from "@/components/Button"
-import { ArrowLeft, Download } from "@/components/Icons"
+import { Button, ButtonSecondary, ButtonIcon, ButtonSecondaryIcon, ButtonLink } from "@/components/Button"
+import { ArrowLeft, ArrowRight, Download } from "@/components/Icons"
 import Link from "next/link"
 
 
@@ -17,6 +17,10 @@ export default function Components() {
         <article className="flex flex-col border-2 rounded-md  items-start gap-4 p-4 max-w-xs w-full">
           <h2 className="font-bold text-l">&lt;ButtonIcon /&gt;</h2>
           <ButtonIcon icon={<Download/>} description="Button"/>
+        </article>
+        <article className="flex flex-col border-2 rounded-md  items-start gap-4 p-4 max-w-xs w-full">
+          <h2 className="font-bold text-l">&lt;ButtonLink /&gt;</h2>
+          <ButtonLink icon={<ArrowRight/>} description="Button" url="#"/>
         </article>
         <article className="flex flex-col border-2 rounded-md  items-start gap-4 p-4 max-w-xs w-full">
           <h2 className="font-bold text-l">&lt;ButtonSecondary /&gt;</h2>
