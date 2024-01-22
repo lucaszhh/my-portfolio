@@ -1,6 +1,5 @@
 import {  ButtonSecondaryIcon } from "../Button"
 import { Github, Linkedin, Mail } from "../Icons"
-import "./badge.css"
 const Badge = () => {
     return (
         <section className="w-full grid auto-rows-[192px] grid-cols-6 gap-4 py-8">
@@ -19,13 +18,11 @@ const Badge = () => {
                     <p className="font-semibold">Docente y Desarrollador Web Front-end con experiencia en diseño, IA y desarrollo de videojuegos</p>
                 </section>
             </section>
-            <section className="drop-shadow-lg  row-span-1 col-span-3 rounded-3xl bg-white dark:bg-black overflow-hidden border  xl:col-span-1 flex items-center justify-center relative mapboxgl-map">
-                <div>
+            <section className="drop-shadow-lg p-6 row-span-1 col-span-3 rounded-3xl bg-white dark:bg-black overflow-hidden border  xl:col-span-1 flex items-center justify-center  ">
                     <div>
                         <i></i>
                         <p className="font-semibold text-center">Mendoza, Argentina</p>
                     </div>
-                </div>
             </section>
             <section className="drop-shadow-lg  row-span-1 col-span-3 rounded-3xl bg-white relative flex flex-col  overflow-hidden border  gap-2 items-center justify-center dark:bg-black xl:col-span-1">
                 <h2 className="text-6xl font-bold">+2</h2>

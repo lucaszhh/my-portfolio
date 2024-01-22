@@ -11,7 +11,8 @@ type PropsIcon = {
     description: string | React.ReactNode,
     icon: React.ReactNode,
     onClick?: () => void,
-    url?: string
+    url?: string,
+    clas?: string
 }
 
 type PropsIconLink = {
@@ -31,7 +32,7 @@ export const Button = ({ description, onClick }: Props) => {
 
 export const ButtonIcon = ({ description, icon, onClick }: PropsIcon) => {
     return (
-        <button onClick={onClick} className='w-auto flex items-center gap-2 bg-black text-white rounded-3xl dark:text-black dark:bg-blue-300 h-full px-6 cursor-pointer active:scale-[1.1] transition-all duration-300'>
+        <button onClick={onClick} className='w-auto flex items-center gap-2 bg-black text-white rounded-3xl border-2 dark:bg-[#63e] h-full px-6 cursor-pointer active:scale-[1.1] transition-all duration-300'>
             {icon}
             <span className='text-xs font-bold'>{description}</span>
         </button>
@@ -58,9 +59,9 @@ export const ButtonSecondary = ({ description, onClick }: Props) => {
     )
 }
 
-export const ButtonSecondaryIcon = ({ description, icon, onClick }: PropsIcon) => {
+export const ButtonSecondaryIcon = ({ description, icon, clas, onClick }: PropsIcon) => {
     return (
-        <button onClick={onClick} className='flex items-center border-2 font-medium bg-white px-3 py-2 rounded-lg text-black gap-2 active:scale-[1.1] transition-transform duration-300'>
+        <button onClick={onClick} className={`flex items-center border-2 font-medium bg-white px-3 py-2 rounded-lg text-black gap-2 active:scale-[1.1] transition-transform duration-300 ${clas}`}>
             {icon}
             <span className='text-xs font-bold'>{description}</span>
         </button>

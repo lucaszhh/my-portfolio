@@ -31,13 +31,6 @@ const Experience = () => {
             link: "",
         },
         {
-            date: "Agosto 2022",
-            title: "Desarrollador Web Front End - Booking Vehiculos",
-            description:
-                "Lorem ipsum dolor sit amet",
-            link: "",
-        },
-        {
             date: "Noviembre 2021",
             title: "Desarrollador Web Front End - Casa del futuro",
             description:
