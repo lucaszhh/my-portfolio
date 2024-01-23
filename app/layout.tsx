@@ -18,9 +18,14 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin='' />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossOrigin="anonymous" referrerPolicy="no-referrer" />
+
+        <meta property="og:title" content="Lucas Zarandón" />
+        <meta property="og:description"
+          content="Soy Lucas Zarandón, Docente y Desarrollador Web Front-end con experiencia en diseño, IA y desarrollo de videojuegos" />
+        <meta property="og:image" content="https://raw.githubusercontent.com/lucaszhh/my-portfolio/main/public/icon.webp" />
+        <meta property="og:url" content="https://lucaszarandon.vercel.app/" />
+        <meta property="og:type" content="website" />
+
       </head>
       <body className={inter.className}>{children}</body>
     </html>
