@@ -1,3 +1,4 @@
+import Link from "next/link"
 import {  ButtonSecondaryIcon } from "../Button"
 import { Github, Linkedin, Mail } from "../Icons"
 const Badge = () => {
@@ -7,9 +8,15 @@ const Badge = () => {
                 <h1 className="text-3xl font-bold">LUCAS MARTÍN ZARANDÓN COSTA</h1>
                 <h2 className="font-semibold text-xl">Desarrollador Web FrontEnd</h2>
                 <div className="flex gap-4">
-                    <ButtonSecondaryIcon icon={<Github />} description="GitHub" />
-                    <ButtonSecondaryIcon icon={<Linkedin />} description="Linkedin" />
-                    <ButtonSecondaryIcon icon={<Mail />} description="Mail" />
+                    <Link href={"https://www.github.com/lucaszhh"} target="_blank" aria-label="to Github @Lucaszhh">
+                        <ButtonSecondaryIcon icon={<Github />} description="GitHub" />
+                    </Link>
+                    <Link href={"https://www.linkedin.com/in/lucas-zarandon/"} target="_blank" aria-label="to Linkedin lucas-zarandon">
+                        <ButtonSecondaryIcon icon={<Linkedin />} description="Linkedin" />
+                    </Link>
+                    <Link href={"mailto:lucaszarandon24@gmail.com"} target="_blank" aria-label="to Email lucaszarandon24@gmail.com">
+                        <ButtonSecondaryIcon icon={<Mail />} description="Mail" />
+                    </Link>
                 </div>
             </section>
             <section className=" drop-shadow-lg  row-span-1 col-span-6 rounded-3xl bg-white relative flex flex-col overflow-hidden border  gap-2 p-4 dark:bg-black xl:col-span-2 lg:px-8">
