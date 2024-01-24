@@ -49,16 +49,18 @@ const Projects = () => {
 
     const PROJECTS = [
         {
-            title: "Git con GitHub - Aprende git-flow con este sitio web",
+            title: "Git con GitHub",
+            subtitle: "Plataforma educativa",
             description:
-                "Plataforma gratuita para aprender a utilizar la consola de Git con el repositorio remoto y colaborativo de GitHub. Creado desde cero con HTML, CSS y JavaScript.",
+                "Plataforma gratuita para aprender a utilizar git flow con la consola de Git y el repositorio remoto y colaborativo de GitHub. Creado desde cero con HTML, CSS y JavaScript.",
             link: "https://git-con-github.netlify.app/",
             github: "https://github.com/lucaszhh/git-con-github",
             image: "/projects/png/git-con-github.png",
             tags: [TAGS.HTML, TAGS.CSS, TAGS.JAVASCRIPT],
         },
         {
-            title: "Casa del Futuro Godoy Cruz - Landing Page para CDF",
+            title: "Casa del Futuro Godoy Cruz",
+            subtitle: "Landing Page",
             description:
                 "Landing page desarrollada para la institución pública Casa del Futuro Godoy Cruz. Creada desde cero con Next.js, React, TypeScript y CSS.",
             link: "https://casa-del-futuro.vercel.app/",
@@ -69,7 +71,8 @@ const Projects = () => {
             linkPrev: "/projects",
         },
         {
-            title: "Digital Money House - Billetera Virtual",
+            title: "Digital Money House",
+            subtitle: "Billetera Virtual",
             description:
                 "Sitio web que simula una billetera virtual desarrollada para el proyecto final de la carrera de Certified Tech Developer de Digital House, Globant y Mercado Libre. Creada desde cero con Next.js, React, TypeScript y Style Components.",
             link: "https://equipo-12-lucaszhh.vercel.app/",
@@ -85,11 +88,15 @@ const Projects = () => {
             </section>
             <section className="flex flex-col justify-center items-center gap-y-16">
                 {
-                    PROJECTS.map(({ image, title, description, tags, github, link, cdf, linkPrev }, id) => (
+                    PROJECTS.map(({ image, title, description, tags, github, link, cdf, subtitle }, id) => (
                         <article key={id} className="rounded-3xl border p-4 max-w-3xl drop-shadow-md flex flex-col gap-2 lg:p-6 bg">
-                            <h3 className="text-2xl font-semibold text-[#63e] dark:text-yellow-200 ">
-                                {title}
-                            </h3>
+                            <div>
+                                <h3 className="text-2xl font-semibold text-[#63e] dark:text-yellow-200 ">
+                                    {title}
+                                </h3>
+                                <h4 className="tranform -translate-y-1 text-md font-semibold text-[#63e] dark:text-yellow-200">{subtitle}</h4>
+
+                            </div>
                             <p className="text-lg text-pretty">{description}</p>
                             <ul className="flex flex-wrap gap-2 flex-row mb-2">
                                 {tags.map((tag, id) => (

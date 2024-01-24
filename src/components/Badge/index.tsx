@@ -27,7 +27,6 @@ const Badge = () => {
             </section>
             <section className="drop-shadow-lg p-6 row-span-1 col-span-3 rounded-3xl bg-white dark:bg-black overflow-hidden border  xl:col-span-1 flex items-center justify-center  ">
                     <div>
-                        <i></i>
                         <p className="font-semibold text-center">Mendoza, Argentina</p>
                     </div>
             </section>
