@@ -1,14 +1,15 @@
-import { ButtonIcon } from "../Button"
+import { ButtonIcon, ButtonLink } from "../Button"
 import { ArrowRight } from "../Icons"
 
 interface Props {
     title: string
     description: string
-    link?: string
+    link: string,
+    linkDescription: string,
     date: string
 }
 
-const ExperienceItem = ({ title, description, link, date }: Props) => {
+const ExperienceItem = ({ title, description, link, date, linkDescription }: Props) => {
     return (
         <section>
             <div
@@ -25,17 +26,12 @@ const ExperienceItem = ({ title, description, link, date }: Props) => {
             <p className="mb-4 text-base font-normal dark:text-gray-200 text-pretty">
                 {description}
             </p>
-            {
-                link && (
-                    <ButtonIcon icon={<ArrowRight/>} description="Saber más..."/>
-                )
-            }
+            <ButtonLink url={link} icon={<ArrowRight />} description={linkDescription} />
         </section>
     )
 }
 
 export default ExperienceItem
-
 
 
 
