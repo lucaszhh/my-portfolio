@@ -1,0 +1,16 @@
+---
+const { className, onClick } = Astro.props
+---
+
+<button
+    aria-label="description"
+    onclick={onClick}
+    class=`flex justify-between items-center border-2 font-medium bg-white px-3 py-2 rounded-lg text-black gap-2 active:scale-[1.1] transition-transform duration-300 ${className}`
+>
+    <slot name="before" />
+    <span class="text-sm font-bold">
+        <slot />
+    </span>
+
+    <slot name="after" />
+</button>

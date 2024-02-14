@@ -1,0 +1,101 @@
+---
+
+import ButtonSecondary from "../shared/ButtonSecondary.astro"
+import Github from "../icons/Github.astro"
+import ArrowLeft from "../icons/ArrowLeft.astro"
+import ArrowRight from "../icons/ArrowRight.astro"
+
+
+type tagsProp = {
+    name: string,
+    class: string,
+    icon: (_props: Record<string, any>) => any
+}
+
+
+const { image, title, description, tags , github, link, cdf, subtitle } =
+    Astro.props
+---
+
+<article
+    class="rounded-xl border p-4 max-w-3xl drop-shadow-md flex flex-col gap-2 lg:p-6 bg"
+>
+    <div>
+        <h3 class="text-3xl font-bold text-black dark:text-white">
+            {title}
+        </h3>
+        <h4
+            class="tranform -translate-y-1 text-md font-semibold text-[#63e] dark:text-yellow-200"
+        >
+            {subtitle}
+        </h4>
+    </div>
+    <p class="text-lg text-pretty">{description}</p>
+    <ul class="flex flex-wrap gap-2 flex-row mb-2">
+        {
+            tags.map((tag: tagsProp) => (
+                <li>
+                    <span
+                        class={`flex items-center gap-x-2 rounded-full w-auto text-xs font-semibold ${tag.class} py-2 px-4`}
+                    >
+                        <tag.icon />
+                        {tag.name}
+                    </span>
+                </li>
+            ))
+        }
+    </ul>
+    <footer
+        class="flex justify-center items-center flex-col gap-2 lg:flex-row lg:justify-between lg:items-end"
+    >
+        <img
+            loading="lazy"
+            src={image}
+            width={500}
+            height={500}
+            alt={`Captura de pantalla del proyecto ${image}`}
+        />
+        <div
+            class="flex flex-col sm:flex-row justify-between w-full gap-2 lg:flex-col"
+        >
+            {
+                cdf && (
+                    <>
+                        <p class="text-md text-pretty hidden lg:block">
+                            Antes de esta versión habia creado un sitio con HTML
+                            y CSS
+                        </p>
+                        <a
+                            href="https://casadelfuturogc.netlify.app/"
+                            target="_blank"
+                            class="w-full flex lg:mb-4"
+                        >
+                            <ButtonSecondary
+                            className="w-full"
+                            >
+                            <ArrowLeft slot="before" />
+                            Ver proyecto anterior
+                            </ButtonSecondary>
+                        </a>
+                    </>
+                )
+            }
+            <a href={github} target="_blank" class="w-full flex">
+                <ButtonSecondary
+                className="w-full"
+                >
+                <Github slot="after"/>
+                Ver código funte
+            </ButtonSecondary>
+            </a>
+            <a href={link} target="_blank" class="w-full flex">
+                <ButtonSecondary
+                className="w-full"
+                >
+                <ArrowRight slot="after"/>
+                Ir al sitio web
+            </ButtonSecondary>
+            </a>
+        </div>
+    </footer>
+</article>
