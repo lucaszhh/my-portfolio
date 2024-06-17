@@ -17,10 +17,13 @@ import Sun from "../icons/Sun.astro"
                 <Moon className="dark:hidden" />
                 <Sun className="dark:flex hidden" />
             </button>
-            <Button className="text-primary">
-                <Download slot="before" />
-                Descargar CV
-            </Button>
+
+            <a href="/cv-light.pdf" download="/cv-light.pdf">
+                <Button className="text-primary">
+                    <Download slot="before" />
+                    Descargar CV
+                </Button>
+            </a>
         </div>
     </nav>
 </header>
