@@ -1,19 +1,19 @@
 ---
-import NextJs from "../icons/NextJs.astro"
-import React from "../icons/React.astro"
-import Css from "../icons/Css.astro"
-import Tailwind from "../icons/Tailwind.astro"
-import Html from "../icons/Html.astro"
-import JavaScript from "../icons/JavaScript.astro"
-import TypeScript from "../icons/TypeScript.astro"
-import StyleComponents from "../icons/StyleComponents.astro"
-import ProjectItem from "../cards/ProjectItem.astro"
+import NextJs from "../icons/NextJs.astro";
+import React from "../icons/React.astro";
+import Css from "../icons/Css.astro";
+import Tailwind from "../icons/Tailwind.astro";
+import Html from "../icons/Html.astro";
+import JavaScript from "../icons/JavaScript.astro";
+import TypeScript from "../icons/TypeScript.astro";
+import StyleComponents from "../icons/StyleComponents.astro";
+import ProjectItem from "../cards/ProjectItem.astro";
 
 const TAGS = {
     NEXT: {
         name: "Next.js",
         class: "bg-neutral-800 dark:bg-neutral-800 text-white",
-        icon: NextJs,   
+        icon: NextJs,
     },
     REACT: {
         name: "React",
@@ -50,9 +50,19 @@ const TAGS = {
         class: "bg-neutral-800 dark:bg-neutral-800 text-white",
         icon: StyleComponents,
     },
-}
+};
 
 const PROJECTS = [
+    {
+        title: "Digital Money House",
+        subtitle: "Billetera Virtual",
+        description:
+            "Sitio web que simula una billetera virtual desarrollada para el proyecto final de la carrera de Certified Tech Developer de Digital House, Globant y Mercado Libre. Creada desde cero con Next.js, React, TypeScript y Style Components.",
+        link: "https://digitalmoneyhouse.vercel.app/",
+        github: "https://github.com/lucaszhh/digital-money-house",
+        image: "/projects/png/dmh.png",
+        tags: [TAGS.NEXT, TAGS.REACT, TAGS.TYPESCRIPT, TAGS.STYLECOMPONENTS],
+    },
     {
         title: "Git con GitHub",
         subtitle: "Plataforma educativa",
@@ -75,20 +85,10 @@ const PROJECTS = [
         cdf: true,
         linkPrev: "/projects",
     },
-    {
-        title: "Digital Money House",
-        subtitle: "Billetera Virtual",
-        description:
-            "Sitio web que simula una billetera virtual desarrollada para el proyecto final de la carrera de Certified Tech Developer de Digital House, Globant y Mercado Libre. Creada desde cero con Next.js, React, TypeScript y Style Components.",
-        link: "https://digitalmoneyhouse.vercel.app/",
-        github: "https://github.com/lucaszhh/digital-money-house",
-        image: "/projects/png/dmh.png",
-        tags: [TAGS.NEXT, TAGS.REACT, TAGS.TYPESCRIPT, TAGS.STYLECOMPONENTS],
-    },
-]
+];
 ---
 
-<section class="py-4">
+<section class="py-4" id="proyectos">
     <h2 class="text-4xl font-bold">Proyectos</h2>
 </section>
 <section class="flex flex-col justify-center items-center gap-y-16">
@@ -103,16 +103,18 @@ const PROJECTS = [
                 link,
                 cdf,
                 subtitle,
-            }) => <ProjectItem 
-            image={image} 
-            title={title} 
-            description={description}
-            tags={tags}
-            github={github}
-            link={link}
-            cdf={cdf}
-            subtitle={subtitle}
-            />,
+            }) => (
+                <ProjectItem
+                    image={image}
+                    title={title}
+                    description={description}
+                    tags={tags}
+                    github={github}
+                    link={link}
+                    cdf={cdf}
+                    subtitle={subtitle}
+                />
+            ),
         )
     }
     {

@@ -1,18 +1,26 @@
 ---
-import Github from "../icons/Github.astro"
-import Linkedin from "../icons/Linkedin.astro"
-import Mail from "../icons/Mail.astro"
-import ButtonSecondary from "../shared/ButtonSecondary.astro"
+import Github from "../icons/Github.astro";
+import Linkedin from "../icons/Linkedin.astro";
+import Mail from "../icons/Mail.astro";
+import ButtonSecondary from "../shared/ButtonSecondary.astro";
 ---
 
-<section class="w-full grid auto-rows-[192px] grid-cols-6 gap-4 py-8">
+<section class="w-full grid auto-rows-[192px] grid-cols-6 gap-4 py-8" id="sobre-mi">
     <section
-    class="drop-shadow-lg bgHero row-span-2 col-span-6 rounded-xl bg-white relative flex flex-col overflow-hidden border gap-2 justify-end p-6 dark:bg-black xl:col-span-4 lg:p-10"
+        class="drop-shadow-lg bgHero row-span-2 col-span-6 rounded-xl bg-white relative flex flex-col overflow-hidden border gap-2 justify-end p-6 dark:bg-black xl:col-span-4 lg:p-10"
     >
-    <div>
-        <h1 class="text-3xl font-bold">LUCAS ZARAND<span class="text-[#63e] dark:text-yellow-200">Ó</span>N </h1>
-        <h2 class="font-semibold text-2xl text-neutral-800 dark:text-yellow-200 -translate-y-2">FrontEnd Web Developer React</h2>
-    </div>
+        <div>
+            <h1 class="text-3xl font-bold">
+                LUCAS ZARAND<span class="text-[#63e] dark:text-yellow-200"
+                    >Ó</span
+                >N
+            </h1>
+            <h2
+                class="font-semibold text-2xl text-neutral-800 dark:text-yellow-200 -translate-y-2"
+            >
+                FrontEnd Web Developer React
+            </h2>
+        </div>
         <div class="flex gap-4 flex-wrap-reverse">
             <a
                 href={"https://www.github.com/lucaszhh"}
@@ -25,9 +33,9 @@ import ButtonSecondary from "../shared/ButtonSecondary.astro"
                 </ButtonSecondary>
             </a>
             <a
-                href={"https://www.aedin.com/in/lucas-zarandon/"}
+                href={"https://www.linkedin.com/in/lucas-zarandon/"}
                 target="_blank"
-                aria-label="to aedin lucas-zarandon"
+                aria-label="to linkedin lucas-zarandon"
             >
                 <ButtonSecondary>
                     <Linkedin slot="before" />
@@ -52,7 +60,12 @@ import ButtonSecondary from "../shared/ButtonSecondary.astro"
         <section class="flex flex-col gap-4 justify-center h-full">
             <h2 class="text-2xl font-bold">Sobre mí</h2>
             <p class="font-semibold">
-                Enseño a programar - <span class="text-[#63e]">Desarrollador Web FrontEnd</span> - Base de datos - <a class="text-[#63e] hover:underline" href="https://mycreativetype.com/">Innovador</a> - Videojuegos
+                Enseño a programar - <span class="text-[#63e] dark:text-yellow-200"
+                    >Desarrollador Web FrontEnd</span
+                > - Base de datos - <a
+                    class="text-[#63e] dark:text-yellow-200 hover:underline"
+                    href="https://mycreativetype.com/">Innovador</a
+                > - Videojuegos
             </p>
         </section>
     </section>

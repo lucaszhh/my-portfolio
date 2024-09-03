@@ -80,6 +80,9 @@ const { title } = Astro.props
   </script>
 
 <style is:global>
+	html {
+		scroll-behavior: smooth;
+	}
 
 	:root {
 		--foreground-rgb: 0, 0, 0;
@@ -121,7 +124,7 @@ const { title } = Astro.props
 	.bgHero{
 		background: 
 		radial-gradient(125% 125% at 50% 10%, #ffffff00 40%, rgba(101, 51, 238, 0.494) 100%), 
-		url(/me.png) no-repeat bottom right;
+		url(/me.png) no-repeat bottom right ;
 		background-size: contain;
 	}
 
