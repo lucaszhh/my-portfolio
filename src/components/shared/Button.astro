@@ -1,13 +1,14 @@
 ---
-const { className, onClick } = Astro.props
+const { className, onClick, id } = Astro.props;
 ---
 
 <button
+    id={id}
     onclick={onClick}
     class=`${className} w-auto flex items-center gap-2 bg-black text-white rounded-3xl dark:text-white hover:bg-white dark:hover:text-black hover:text-black dark:bg-[#63e] h-10 px-6 cursor-pointer active:scale-[1.1] transition-all duration-300 `
 >
     <slot name="before" />
-    <span class="text-sm  font-bold">
+    <span class="text-sm font-bold">
         <slot />
     </span>
     <slot name="after" />
@@ -27,7 +28,11 @@ const { className, onClick } = Astro.props
         position: absolute;
         top: 0;
         left: 0;
-        background-image: linear-gradient(to right, rgb(254 240 138) 50%, #63e 100%);
+        background-image: linear-gradient(
+            to right,
+            rgb(254 240 138) 50%,
+            #63e 100%
+        );
         transition: 0.5s ease;
         display: block;
         z-index: -1;

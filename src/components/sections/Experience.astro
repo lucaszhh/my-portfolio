@@ -1,6 +1,7 @@
 ---
-import ExperienceItem from "../cards/ExperienceItem.astro"
-const EXPERIENCIE = [
+import ExperienceItem from "../cards/ExperienceItem.astro";
+import Button from "../shared/Button.astro";
+export const EXPERIENCES = [
     {
         date: "Diciembre 2023 - Actualmente...",
         title: "Cofundador de RED VIRTUAL",
@@ -49,25 +50,44 @@ const EXPERIENCIE = [
         linkDescription: "Ir al sitio web",
         link: "https://casadelfuturogc.netlify.app/",
     },
-]
+];
 ---
 
 <section class="py-8" id="experiencia">
-    <h2 class="text-4xl font-bold pb-4">Experiencia profesional</h2>
+    <h2 class="text-4xl font-bold pb-6">Experiencia profesional</h2>
     <ol class="relative border-s border-gray-200 ml-3">
         {
-            EXPERIENCIE.map((experiencie) => (
+            EXPERIENCES.slice(0, 3).map((experience) => (
                 <li class="transition ease-in mb-10 ms-4 max-w-3xl">
-                    <ExperienceItem {...experiencie} />
+                    <ExperienceItem {...experience} />
                 </li>
             ))
         }
+        <div id="moreExperience" class="hidden">
+            {
+                EXPERIENCES.slice(3, EXPERIENCES.length).map((experience) => (
+                    <li class="transition ease-in mb-10 ms-4 max-w-3xl">
+                        <ExperienceItem {...experience} />
+                    </li>
+                ))
+            }
+        </div>
     </ol>
-    {
-        /*             <ButtonLink
-        icon={<ArrowRight />}
-        description={ "Conocé más"}
-        url="/experiencie"
-    /> */
-    }
+    <div class="flex justify-center">
+        <Button id="openExperience" >VER MÁS</Button>
+    </div>
 </section>
+
+<script>
+    const openExperience = document.querySelector("#openExperience");
+    const moreExperience = document.querySelector("#moreExperience");
+    openExperience.addEventListener("click", () => {
+        moreExperience.classList.toggle("hidden")
+        if (openExperience.innerText === "VER MÁS") {
+            openExperience.innerText = "VER MENOS";
+        } else {
+            openExperience.innerText = "VER MÁS";
+        }
+    
+    });
+</script>
