@@ -1,68 +1,38 @@
 ---
-import ButtonSecondary from "../shared/ButtonSecondary.astro";
-import Github from "../icons/Github.astro";
-import Linkedin from "../icons/Linkedin.astro";
-import Mail from "../icons/Mail.astro";
+import Button from "../shared/Button.astro";
 ---
 
 <section class="py-8" id="contacto">
     <h2 class="text-4xl font-bold pb-6">Contacto</h2>
-    <div class="flex flex-col lg:flex-row items-start gap-8">
-        <div class="flex flex-col text-xl w-full lg:w-1/2 gap-2 border rounded-xl p-8">
-            <label for="nombre"> Nombre </label>
-            <input
-                class="border-2 rounded p-1 h-12"
-                type="text"
-                name="nombre"
-            />
-            <label for="email"> Email </label>
-            <input
-                class="border-2 rounded p-1 h-12"
-                type="email"
-                name="email"
-            />
-            <label for="mensaje"> Mensaje </label>
-            <textarea
-                class="border-2 rounded p-1 resize-none h-[200px]"
-                class="h-200px resize-none"
-                name="mensaje"></textarea>
-        </div>
-        <div class="flex flex-col w-full lg:w-1/2 gap-2 border rounded-xl p-8">
-            <h3 class="text-2xl font-bold">Redes Sociales</h3>
-            <div class="flex gap-4">
-                <a
-                    href="https://www.linkedin.com/in/lucas-zarandon/"
-                    target="_blank"
-                    aria-label="to linkedin lucas-zarandon"
-                >
-                    <ButtonSecondary>
-                        <Linkedin slot="before" />
-                        Linkedin
-                    </ButtonSecondary>
-                </a>
-                <a
-                    href="https://www.github.com/lucaszhh"
-                    target="_blank"
-                    aria-label="to Github @Lucaszhh"
-                >
-                    <ButtonSecondary>
-                        <Github slot="before" />
-                        GitHub
-                    </ButtonSecondary>
-                </a>
-                <a
-                    href="mailto:lucaszarandon24@gmail.com"
-                    target="_blank"
-                    aria-label="to Email"
-                >
-                    <ButtonSecondary>
-                        <Mail slot="before" />
-                        Mail
-                    </ButtonSecondary>
-                </a>
+    <div class="flex flex-col items-start gap-8">
+        <div class="flex flex-col text-md w-full gap-4 border rounded-xl p-8 py-4">
+            <div class="flex flex-col md:flex-row gap-4 md:gap-8">
+                <div class="flex flex-col md:w-1/2">
+                    <label for="nombre"> Nombre </label>
+                    <input
+                        class="border-2 rounded p-1 h-12 active:border-[#63e] focus:border-[#63e]"
+                        type="text"
+                        name="nombre"
+                    />
+                </div>
+                <div class="flex flex-col md:w-1/2">
+                    <label for="email"> Email </label>
+                    <input
+                        class="border-2 rounded p-1 h-12 active:border-[#63e] focus:border-[#63e]"
+                        type="email"
+                        name="email"
+                    />
+                </div>
             </div>
+            <div class="flex flex-col">
+                <label for="mensaje"> Mensaje </label>
+                <textarea
+                    class="border-2 rounded p-1 resize-none h-[150px] active:border-[#63e] focus:border-[#63e]"
+                    name="mensaje"></textarea>
+            </div>
+            <Button className="w-1/4 justify-center self-end">Enviar</Button>
         </div>
     </div>
-
-    <style></style>
 </section>
+
+
