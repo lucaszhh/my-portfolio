@@ -1,25 +1,45 @@
 ---
-import Avatar from "../shared/Avatar.astro"
-import AstroIcon from "../icons/AstroIcon.astro"
-import Github from "../icons/Github.astro"
+import Avatar from "../shared/Avatar.astro";
+import AstroIcon from "../icons/AstroIcon.astro";
+import Github from "../icons/Github.astro";
+import Linkedin from "../icons/Linkedin.astro";
+import Mail from "../icons/Mail.astro";
+import ButtonSecondary from "../shared/ButtonSecondary.astro";
 ---
 
-<footer class="flex gap-8 flex-col md:flex-row justify-between items-center border rounded-xl p-4 mt-8 mb-4">
-    <div class="flex items-center gap-4 flex-col md:flex-row text-center md:text-start">
+<footer
+    class="flex gap-8 flex-col md:flex-row justify-between items-center border rounded-xl p-8 py-4 mt-8 mb-4"
+>
+    <div
+        class="flex items-center gap-4 flex-col md:flex-row text-center md:text-start"
+    >
         <Avatar />
         <div class="flex flex-col">
-            <h2 class="text-2xl font-bold gap-4">
-                LUCAS ZARANDÓN
-            </h2>
-            <a
-                target="_blank"
-                href="https://github.com/lucaszhh/my-portfolio"
-                class="flex items-center justify-center font-bold gap-2 hover:underline underline-offset-4 decoration-4 transition duration-200"
-                >Dale una mirada al código funte <Github /></a
-            >
+            <h2 class="text-2xl font-bold gap-4">LUCAS ZARANDÓN</h2>
+            <p>© 2024 Lucas Zarandon. Casi todos los derechos reservados</p>
         </div>
     </div>
-    <h2 class="flex items-center text-md font-bold gap-4">
-        Impulsado por <AstroIcon /> Astro
-    </h2>
+    <div class="flex gap-4">
+        <a
+            href="https://www.linkedin.com/in/lucas-zarandon/"
+            target="_blank"
+            aria-label="to linkedin lucas-zarandon"
+        >
+            <Linkedin />
+        </a>
+        <a
+            href="https://www.github.com/lucaszhh"
+            target="_blank"
+            aria-label="to Github @Lucaszhh"
+        >
+            <Github />
+        </a>
+        <a
+            href="mailto:lucaszarandon24@gmail.com"
+            target="_blank"
+            aria-label="to Email"
+        >
+            <Mail />
+        </a>
+    </div>
 </footer>
