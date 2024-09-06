@@ -1,24 +1,21 @@
 ---
-
-import ButtonSecondary from "../shared/ButtonSecondary.astro"
-import Github from "../icons/Github.astro"
-import ArrowLeft from "../icons/ArrowLeft.astro"
-import ArrowRight from "../icons/ArrowRight.astro"
-
+import ButtonSecondary from "../shared/ButtonSecondary.astro";
+import Github from "../icons/Github.astro";
+import ArrowLeft from "../icons/ArrowLeft.astro";
+import ArrowRight from "../icons/ArrowRight.astro";
 
 type tagsProp = {
-    name: string,
-    class: string,
-    icon: (_props: Record<string, any>) => any
-}
+    name: string;
+    class: string;
+    icon: (_props: Record<string, any>) => any;
+};
 
-
-const { image, title, description, tags , github, link, cdf, subtitle } =
-    Astro.props
+const { image, title, description, tags, github, link, cdf, subtitle } =
+    Astro.props;
 ---
 
 <article
-    class="rounded-xl border p-4 max-w-3xl drop-shadow-md flex flex-col gap-2 lg:p-6 bg"
+    class="bg rounded-xl border p-4 min-w-[80%] lg:min-w-[800px]  flex flex-col gap-2 lg:p-6 "
 >
     <div>
         <h3 class="text-3xl font-bold text-black dark:text-white">
@@ -70,31 +67,25 @@ const { image, title, description, tags , github, link, cdf, subtitle } =
                             target="_blank"
                             class="w-full flex lg:mb-4"
                         >
-                            <ButtonSecondary
-                            className="w-full"
-                            >
-                            <ArrowLeft slot="before" />
-                            Ver proyecto anterior
+                            <ButtonSecondary className="w-full">
+                                <ArrowLeft slot="before" />
+                                Ver proyecto anterior
                             </ButtonSecondary>
                         </a>
                     </>
                 )
             }
             <a href={github} target="_blank" class="w-full flex">
-                <ButtonSecondary
-                className="w-full"
-                >
-                <Github slot="after"/>
-                Ver código funte
-            </ButtonSecondary>
+                <ButtonSecondary className="w-full">
+                    <Github slot="after" />
+                    Ver código funte
+                </ButtonSecondary>
             </a>
             <a href={link} target="_blank" class="w-full flex">
-                <ButtonSecondary
-                className="w-full"
-                >
-                <ArrowRight slot="after"/>
-                Ir al sitio web
-            </ButtonSecondary>
+                <ButtonSecondary className="w-full">
+                    <ArrowRight slot="after" />
+                    Ir al sitio web
+                </ButtonSecondary>
             </a>
         </div>
     </footer>

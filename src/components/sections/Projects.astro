@@ -8,6 +8,7 @@ import JavaScript from "../icons/JavaScript.astro";
 import TypeScript from "../icons/TypeScript.astro";
 import StyleComponents from "../icons/StyleComponents.astro";
 import ProjectItem from "../cards/ProjectItem.astro";
+import ArrowRight from "../icons/ArrowRight.astro";
 
 const TAGS = {
     NEXT: {
@@ -91,36 +92,56 @@ const PROJECTS = [
 <section class="py-4" id="proyectos">
     <h2 class="text-4xl font-bold">Proyectos</h2>
 </section>
-<section class="flex flex-col justify-center items-center gap-y-16">
-    {
-        PROJECTS.map(
-            ({
-                image,
-                title,
-                description,
-                tags,
-                github,
-                link,
-                cdf,
-                subtitle,
-            }) => (
-                <ProjectItem
-                    image={image}
-                    title={title}
-                    description={description}
-                    tags={tags}
-                    github={github}
-                    link={link}
-                    cdf={cdf}
-                    subtitle={subtitle}
-                />
-            ),
-        )
+<div class="relative">
+    <section class="proyects">
+        {
+            PROJECTS.map(
+                ({
+                    image,
+                    title,
+                    description,
+                    tags,
+                    github,
+                    link,
+                    cdf,
+                    subtitle,
+                }) => (
+                    <ProjectItem
+                        image={image}
+                        title={title}
+                        description={description}
+                        tags={tags}
+                        github={github}
+                        link={link}
+                        cdf={cdf}
+                        subtitle={subtitle}
+                    />
+                ),
+            )
+        }
+        {
+            /*
+        ADD PAGE PROJECTS
+        <ButtonLink url="/" icon={<ArrowRight/>} description="Ver mas proyectos"/> 
+        */
+        }
+    
+    </section>
+    <div class="absolute right-8 top-[50%] bg-[#63e] text-white rounded-[999px] p-1">
+        <ArrowRight />
+    </div>
+</div>
+
+
+<style>
+    .proyects{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        gap: 10px;
     }
-    {
-        /*
-    ADD PAGE PROJECTS
-    <ButtonLink url="/" icon={<ArrowRight/>} description="Ver mas proyectos"/> 
-    */
-    }
-</section>
+</style>
