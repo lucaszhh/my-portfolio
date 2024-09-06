@@ -74,20 +74,21 @@ export const EXPERIENCES = [
         </div>
     </ol>
     <div class="flex justify-center">
-        <Button id="openExperience" >VER MÁS</Button>
+        <Button id="openExperience">VER MÁS</Button>
     </div>
 </section>
 
 <script>
-    const openExperience = document.querySelector("#openExperience");
-    const moreExperience = document.querySelector("#moreExperience");
-    openExperience.addEventListener("click", () => {
-        moreExperience.classList.toggle("hidden")
-        if (openExperience.innerText === "VER MÁS") {
-            openExperience.innerText = "VER MENOS";
-        } else {
-            openExperience.innerText = "VER MÁS";
-        }
-    
-    });
+    const openExperience = document.querySelector("#openExperience")
+    const moreExperience = document.querySelector("#moreExperience")
+    if (openExperience && moreExperience)
+        openExperience.addEventListener("click", () => {
+            moreExperience.classList.toggle("hidden")
+            if (moreExperience.classList.contains("hidden")) {
+                openExperience.innerHTML = `<Button id="openExperience" class="font-bold">VER MÁS</Button>`
+                document.location = "#experiencia"
+            } else {
+                openExperience.innerHTML = `<Button id="openExperience"  class="font-bold">VER MENOS</Button>`
+            }
+        })
 </script>
