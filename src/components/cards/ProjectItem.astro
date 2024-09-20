@@ -15,9 +15,10 @@ const { image, title, description, tags, github, link, cdf, subtitle } =
 ---
 
 <article
-    class="bg rounded-xl border p-4 min-w-[80%] lg:min-w-[800px]  flex flex-col gap-2 lg:p-6 "
+    class="bg rounded-xl border p-4 min-w-[80%] lg:min-w-[800px] flex flex-col gap-2 lg:p-6 justify-between"
 >
-    <div>
+<div>    
+<div>
         <h3 class="text-3xl font-bold text-black dark:text-white">
             {title}
         </h3>
@@ -42,6 +43,7 @@ const { image, title, description, tags, github, link, cdf, subtitle } =
             ))
         }
     </ul>
+</div>
     <footer
         class="flex justify-center items-center flex-col gap-2 lg:flex-row lg:justify-between lg:items-end"
     >
@@ -53,7 +55,7 @@ const { image, title, description, tags, github, link, cdf, subtitle } =
             alt={`Captura de pantalla del proyecto ${image}`}
         />
         <div
-            class="flex flex-col sm:flex-row justify-between w-full gap-2 lg:flex-col"
+            class="flex flex-col  justify-between w-full gap-2 lg:flex-col"
         >
             {
                 cdf && (

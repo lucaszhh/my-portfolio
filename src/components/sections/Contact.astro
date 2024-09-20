@@ -4,35 +4,117 @@ import Button from "../shared/Button.astro";
 
 <section class="py-8" id="contacto">
     <h2 class="text-4xl font-bold pb-6">Contacto</h2>
-    <div class="flex flex-col items-start gap-8">
-        <div class="flex flex-col text-md w-full gap-4 border rounded-xl p-8 py-4">
-            <div class="flex flex-col md:flex-row gap-4 md:gap-8">
-                <div class="flex flex-col md:w-1/2">
-                    <label for="nombre"> Nombre </label>
-                    <input
-                        class="border-2 rounded p-1 h-12 active:border-[#63e] focus:border-[#63e]"
-                        type="text"
-                        name="nombre"
-                    />
-                </div>
-                <div class="flex flex-col md:w-1/2">
-                    <label for="email"> Email </label>
-                    <input
-                        class="border-2 rounded p-1 h-12 active:border-[#63e] focus:border-[#63e]"
-                        type="email"
-                        name="email"
-                    />
-                </div>
+    <div class="flex flex-col text-md w-full  border rounded-xl p-8 py-4">
+        <div class="flex flex-col md:flex-row md:gap-4">
+            <div class="flex flex-col w-full md:w-1/2">
+                <label for="name"> Nombre </label>
+                <input
+                    class="border-2 rounded p-1 h-12 active:border-[#63e] focus:border-[#63e]"
+                    type="text"
+                    name="name"
+                    id="name"
+                />
+                <small id="nameError" class="text-red-500 h-6"></small>
             </div>
-            <div class="flex flex-col">
-                <label for="mensaje"> Mensaje </label>
-                <textarea
-                    class="border-2 rounded p-1 resize-none h-[150px] active:border-[#63e] focus:border-[#63e]"
-                    name="mensaje"></textarea>
+            <div class="flex flex-col w-full md:w-1/2">
+                <label for="email"> Email </label>
+                <input
+                    class="border-2 rounded p-1 h-12 active:border-[#63e] focus:border-[#63e]"
+                    type="email"
+                    name="email"
+                    id="email"
+                />
+                <small id="emailError" class="text-red-500 h-6"></small>
             </div>
-            <Button className="w-1/4 justify-center self-end">Enviar</Button>
+        </div>
+        <div class="flex flex-col">
+            <label for="message"> Mensaje </label>
+            <textarea
+                class="border-2 rounded p-1 resize-none h-[150px] active:border-[#63e] focus:border-[#63e]"
+                name="message"
+                id="message"></textarea>
+            <small id="messageError" class="text-red-500 h-6"></small>
+            <div class="flex justify-end">
+                <Button
+                    className="w-full md:w-1/4 justify-center self-end"
+                    id="button">Enviar</Button
+                >
+            </div>
         </div>
     </div>
 </section>
 
+<script>
+    import { addConsulta } from "../../firebase/client";
+    const inputName = document.querySelector(
+        "#name",
+    ) as HTMLInputElement | null;
+    const inputEmail = document.querySelector(
+        "#email",
+    ) as HTMLInputElement | null;
+    const inputMessage = document.querySelector(
+        "#message",
+    ) as HTMLInputElement | null;
+    const button = document.querySelector("#button");
 
+    const nameError = document.querySelector(
+        "#nameError",
+    ) as HTMLElement | null;
+    const emailError = document.querySelector(
+        "#emailError",
+    ) as HTMLElement | null;
+    const messageError = document.querySelector(
+        "#messageError",
+    ) as HTMLElement | null;
+
+    function validateForm() {
+        let isValid = true;
+
+        if (
+            !inputName ||
+            !inputEmail ||
+            !inputMessage ||
+            !nameError ||
+            !emailError ||
+            !messageError
+        )
+            return false;
+
+        nameError.textContent = "";
+        emailError.textContent = "";
+        messageError.textContent = "";
+
+        if (inputName.value.trim() === "") {
+            nameError.textContent = "El nombre es requerido";
+            isValid = false;
+        }
+        if (inputEmail.value.trim() === "") {
+            emailError.textContent = "El correo electrónico es requerido";
+            isValid = false;
+        } else {
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(inputEmail.value)) {
+                emailError.textContent = "El correo electrónico no es válido";
+                isValid = false;
+            }
+        }
+        if (inputMessage.value.trim() === "") {
+            messageError.textContent = "El mensaje es requerido";
+            isValid = false;
+        }
+
+        return isValid;
+    }
+
+    button &&
+        button.addEventListener("click", (e) => {
+            e.preventDefault();
+            if (validateForm() && inputName && inputEmail && inputMessage) {
+                addConsulta({
+                    name: inputName.value,
+                    email: inputEmail.value,
+                    message: inputMessage.value,
+                });
+            }
+        });
+</script>
