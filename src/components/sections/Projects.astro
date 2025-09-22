@@ -13,42 +13,42 @@ import ArrowRight from "../icons/ArrowRight.astro";
 const TAGS = {
     NEXT: {
         name: "Next.js",
-        class: "bg-neutral-800 dark:bg-neutral-800 text-white",
+        class: "bg-neutral-800 text-white",
         icon: NextJs,
     },
     REACT: {
         name: "React",
-        class: "bg-neutral-800 dark:bg-[#63e] text-white",
+        class: "bg-neutral-800  text-white",
         icon: React,
     },
     CSS: {
         name: "CSS",
-        class: "bg-neutral-800 dark:bg-neutral-800 text-white",
+        class: "bg-neutral-800 text-white",
         icon: Css,
     },
     HTML: {
         name: "HTML5",
-        class: "bg-neutral-800 dark:bg-neutral-800 text-white",
+        class: "bg-neutral-800 text-white",
         icon: Html,
     },
     TAILWIND: {
         name: "Tailwind CSS",
-        class: "bg-neutral-800 dark:bg-[#63e] text-white",
+        class: "bg-neutral-800  text-white",
         icon: Tailwind,
     },
     JAVASCRIPT: {
         name: "JavaScript",
-        class: "bg-neutral-800 dark:bg-[#63e] text-white",
+        class: "bg-neutral-800  text-white",
         icon: JavaScript,
     },
     TYPESCRIPT: {
         name: "TypeScript",
-        class: "bg-neutral-800 dark:bg-[#63e] text-white",
+        class: "bg-neutral-800  text-white",
         icon: TypeScript,
     },
     STYLECOMPONENTS: {
         name: "Style Components",
-        class: "bg-neutral-800 dark:bg-neutral-800 text-white",
+        class: "bg-neutral-800 text-white",
         icon: StyleComponents,
     },
 };
@@ -57,8 +57,6 @@ const PROJECTS = [
     {
         title: "Digital Money House",
         subtitle: "Billetera Virtual",
-        description:
-            "Sitio web que simula una billetera virtual desarrollada para el proyecto final de la carrera de Certified Tech Developer de Digital House, Globant y Mercado Libre. Creada desde cero con Next.js, React, TypeScript y Style Components.",
         link: "https://digitalmoneyhouse.vercel.app/",
         github: "https://github.com/lucaszhh/digital-money-house",
         image: "/projects/png/dmh.png",
@@ -67,8 +65,6 @@ const PROJECTS = [
     {
         title: "Git con GitHub",
         subtitle: "Plataforma educativa",
-        description:
-            "Plataforma gratuita para aprender a utilizar git flow con la consola de Git y el repositorio remoto y colaborativo de GitHub. Creado desde cero con HTML, CSS y JavaScript.",
         link: "https://git-con-github.netlify.app/",
         github: "https://github.com/lucaszhh/git-con-github",
         image: "/projects/png/git-con-github.png",
@@ -77,8 +73,6 @@ const PROJECTS = [
     {
         title: "Casa del Futuro Godoy Cruz",
         subtitle: "Landing Page",
-        description:
-            "Landing page desarrollada para la institución pública Casa del Futuro Godoy Cruz. Creada desde cero con Next.js, React, TypeScript y CSS.",
         link: "https://casa-del-futuro.vercel.app/",
         github: "https://github.com/lucaszhh/casa-del-futuro",
         image: "/projects/png/cdfnext.png",
@@ -99,7 +93,6 @@ const PROJECTS = [
                 ({
                     image,
                     title,
-                    description,
                     tags,
                     github,
                     link,
@@ -109,7 +102,6 @@ const PROJECTS = [
                     <ProjectItem
                         image={image}
                         title={title}
-                        description={description}
                         tags={tags}
                         github={github}
                         link={link}

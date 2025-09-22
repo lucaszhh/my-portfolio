@@ -5,19 +5,19 @@ import Mail from "../icons/Mail.astro";
 import ButtonSecondary from "../shared/ButtonSecondary.astro";
 ---
 
-<section class="w-full grid auto-rows-[192px] grid-cols-6 gap-4 py-8 " >
+<section class="w-full flex flex-col md:grid md:auto-rows-[192px] grid-cols-6 gap-4 py-8 " >
     <section
-        class="drop-shadow-lg bgHero row-span-2 col-span-6 rounded-xl bg-white relative flex flex-col overflow-hidden border gap-2 justify-end p-6 dark:bg-black xl:col-span-4 lg:p-8 "
+        class="drop-shadow-lg bgHero h-96 md:h-auto row-span-2 col-span-6 rounded-xl bg-white relative flex flex-col overflow-hidden border gap-2 justify-end p-6 dark:bg-black xl:col-span-4 lg:p-8 "
     >
-        <div>
+        <div >
             <h1 class="text-3xl font-bold ">LUCAS ZARAND<span class="text-[#63e] dark:text-yellow-200">Ó</span>N</h1>
             <h2
-                class="font-semibold text-2xl text-[#63e] dark:text-yellow-200 -translate-y-2"
+                class="font-semibold text-2xl -translate-y-2"
             >
-                FrontEnd Web Developer React
+                FrontEnd Developer  <span class="text-[#63e] dark:text-yellow-200">React</span> 
             </h2>
         </div>
-        <div class="flex gap-4 flex-wrap-reverse">
+        <div class="hidden md:flex gap-4 flex-wrap-reverse">
             <a
                 href={"https://www.github.com/lucaszhh"}
                 target="_blank"
@@ -50,31 +50,64 @@ import ButtonSecondary from "../shared/ButtonSecondary.astro";
             </a>
         </div>
     </section>
+    <div class="md:hidden flex flex-col sm:grid sm:grid-cols-3 gap-4 col-span-6">
+        <a
+            href={"https://www.github.com/lucaszhh"}
+            target="_blank"
+            aria-label="to Github @Lucaszhh"
+        >
+            <ButtonSecondary className="w-full justify-start">
+                <Github className="min-w-8" slot="before" />
+                GitHub
+            </ButtonSecondary>
+        </a>
+        <a
+            href={"https://www.linkedin.com/in/lucas-zarandon/"}
+            target="_blank"
+            aria-label="to linkedin lucas-zarandon"
+        >
+            <ButtonSecondary className="w-full justify-start">
+                <Linkedin className="min-w-8" slot="before" />
+                Linkedin
+            </ButtonSecondary>
+        </a>
+        <a
+            href={"mailto:lucaszarandon24@gmail.com"}
+            target="_blank"
+            aria-label="to Email lucaszarandon24@gmail.com"
+        >
+            <ButtonSecondary className="w-full justify-start">
+                <Mail className="min-w-8" slot="before" />
+                Mail
+            </ButtonSecondary>
+        </a>
+    </div>
     <section
-        class="drop-shadow-lg row-span-1 col-span-6 rounded-xl bg-white relative flex flex-col overflow-hidden border gap-2 p-4 dark:bg-black xl:col-span-2 lg:px-8"
+        class="drop-shadow-lg min-h-48 md:h-auto row-span-1 col-span-6 rounded-xl bg-white relative flex flex-col overflow-hidden border gap-2 p-4 dark:bg-black xl:col-span-2 lg:px-8"
     >
         <section class="flex flex-col gap-4 justify-center h-full">
             <h2 class="text-2xl font-bold">Sobre mí</h2>
             <p class="font-semibold">
-                Enseño a programar - <span class="text-[#63e] dark:text-yellow-200"
-                    >Desarrollador Web FrontEnd</span
-                > - Base de datos - <a
-                    class="text-[#63e] dark:text-yellow-200 hover:underline"
-                    href="https://mycreativetype.com/">Innovador</a
-                > - Videojuegos
+                <span class="text-[#63e] dark:text-yellow-200"
+                    >React / Next.js</span
+                > | TypeScript, Tailwind, MUI | Diseño de Sistemas / <span class="text-[#63e] dark:text-yellow-200"
+                >Design Systems</span
+            > | UI Performance & Accesibilidad | Mentor & Educador
             </p>
         </section>
     </section>
     <section
-        class="drop-shadow-lg p-6 row-span-1 col-span-3 rounded-xl bg-white dark:bg-black overflow-hidden border xl:col-span-1 flex items-center justify-center"
+        class="relative drop-shadow-lg p-6 h-48 md:h-auto row-span-1 col-span-3 rounded-xl bg-white dark:bg-black overflow-hidden border xl:col-span-1 flex items-center justify-center"
     >
+    <svg class="absolute w-[100%] -z-10 opacity-60 text-gray-200 "  xmlns="http://www.w3.org/2000/svg"  width="200"  height="200"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="0.3"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-map-pin"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" /></svg>
         <div>
             <p class="font-semibold text-center">Mendoza, Argentina</p>
         </div>
     </section>
     <section
-        class="drop-shadow-lg row-span-1 col-span-3 rounded-xl bg-white relative flex flex-col overflow-hidden border gap-2 items-center justify-center dark:bg-black xl:col-span-1"
+        class="drop-shadow-lg row-span-1 col-span-3 h-48 md:h-auto rounded-xl bg-white relative flex flex-col overflow-hidden border gap-2 items-center justify-center dark:bg-black xl:col-span-1"
     >
+    <svg class="absolute w-[100%] -z-10 opacity-60 text-gray-200 " xmlns="http://www.w3.org/2000/svg"  width="200"  height="200"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="0.3"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-chart-line"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 19l16 0" /><path d="M4 15l4 -6l4 2l4 -5l4 4" /></svg>
         <h2 class="text-6xl font-bold">+3</h2>
         <p class="font-semibold text-xs">Años de experiencia</p>
     </section>

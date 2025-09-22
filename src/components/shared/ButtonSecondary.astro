@@ -5,10 +5,10 @@ const { className, onClick } = Astro.props
 <button
     aria-label="description"
     onclick={onClick}
-    class=`flex justify-between items-center border-2 font-medium bg-white px-3 py-2 rounded-lg text-black gap-2 active:scale-[1.1] transition-transform duration-300 ${className}`
+    class=`flex items-center border-2 font-medium bg-white dark:bg-black dark:text-white px-3 py-2 rounded-lg text-black gap-2 active:scale-[1.1] transition-transform duration-300 ${className}`
 >
     <slot name="before" />
-    <span class="text-sm font-bold">
+    <span class="text-sm font-bold flex-1">
         <slot />
     </span>
 

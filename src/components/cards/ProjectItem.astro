@@ -10,7 +10,7 @@ type tagsProp = {
     icon: (_props: Record<string, any>) => any;
 };
 
-const { image, title, description, tags, github, link, cdf, subtitle } =
+const { image, title, tags, github, link, cdf, subtitle } =
     Astro.props;
 ---
 
@@ -28,7 +28,6 @@ const { image, title, description, tags, github, link, cdf, subtitle } =
             {subtitle}
         </h4>
     </div>
-    <p class="text-lg text-pretty">{description}</p>
     <ul class="flex flex-wrap gap-2 flex-row mb-2">
         {
             tags.map((tag: tagsProp) => (
