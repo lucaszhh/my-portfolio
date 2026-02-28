@@ -27,12 +27,7 @@ const addConsulta = async ({name, email, message} : Consulta) => {
             email,
             message
         };
-        console.log("Sending data to Firestore:", consultaData);
-
-        const docRef = await addDoc(collection(db, "consultas"), consultaData);
-        console.log(docRef);
-        
-        console.log("Document written with ID: ", docRef.id);
+        await addDoc(collection(db, "consultas"), consultaData);
     } catch (error) {
         console.error("Error adding document: ", error);
     }
