@@ -1,16 +1,38 @@
 ---
 import Layout from "../layouts/Layout.astro"
 import Hero from "../components/sections/Hero.astro"
+import Impact from "../components/sections/Impact.astro"
+import DesignSystem from "../components/sections/DesignSystem.astro"
 import Experience from "../components/sections/Experience.astro"
 import Projects from "../components/sections/Projects.astro"
 import AboutMe from "../components/sections/AboutMe.astro"
 import Contact from "../components/sections/Contact.astro"
 ---
 
-<Layout title="Lucas Zarandón">
-	<Hero />
-	<Experience/>
-	<Projects/>
-	<AboutMe />
-	<Contact />
+<Layout
+	title="Lucas Zarandón — Frontend Engineer"
+	description="Frontend Engineer especializado en arquitectura, Design Systems y migraciones a Next.js en productos en producción."
+	canonical="/"
+>
+	<section id="hero">
+		<Hero />
+	</section>
+	<section id="impact">
+		<Impact />
+	</section>
+	<section id="design-system">
+		<DesignSystem />
+	</section>
+	<section id="experience">
+		<Experience/>
+	</section>
+	<section id="projects">
+		<Projects/>
+	</section>
+	<section id="about">
+		<AboutMe />
+	</section>
+	<section id="contact">
+		<Contact />
+	</section>
 </Layout>

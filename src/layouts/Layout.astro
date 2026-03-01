@@ -2,10 +2,33 @@
 import Header from "../components/elements/Header.astro";
 import Footer from "../components/elements/Footer.astro";
 interface Props {
-	title: string;
+	title?: string;
+	description?: string;
+	canonical?: string;
+	ogImage?: string;
 }
 
-const { title } = Astro.props;
+const defaultTitle = "Lucas Zarandón — Frontend Engineer";
+const defaultDescription =
+	"Frontend Engineer especializado en arquitectura, Design Systems y migraciones a Next.js en productos en producción.";
+const siteUrl =
+	Astro.site ?? new URL("https://lucaszarandon.vercel.app");
+
+const {
+	title = defaultTitle,
+	description = defaultDescription,
+	canonical,
+	ogImage,
+} = Astro.props;
+
+const canonicalUrl = new URL(
+	canonical ?? Astro.url.pathname,
+	siteUrl,
+).toString();
+const ogImageUrl = new URL(
+	ogImage ?? "/og.png",
+	siteUrl,
+).toString();
 ---
 
 <html lang="en">
@@ -14,18 +37,20 @@ const { title } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" href="/favicon.ico" sizes="any" />
 
-		<meta property="og:title" content="Lucas Zarandón" />
-		<meta
-			property="og:description"
-			content="Enseño a programar - Desarrollador Web FrontEnd - Base de datos - Innovador - Videojuegos"
-		/>
-		<meta
-			property="og:image"
-			content="https://raw.githubusercontent.com/lucaszhh/my-portfolio/main/public/icon.webp"
-		/>
-		<meta property="og:url" content="https://lucaszarandon.vercel.app/" />
-		<meta property="og:type" content="website" />
 		<title>{title}</title>
+		<meta name="description" content={description} />
+		<link rel="canonical" href={canonicalUrl} />
+
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalUrl} />
+		<meta property="og:image" content={ogImageUrl} />
+
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={ogImageUrl} />
 	</head>
 	<body>
 		<section
@@ -35,7 +60,9 @@ const { title } = Astro.props;
 				class="text-black dark:text-white mx-auto sm:w-4/5 p-4 max-w-screen-xl"
 			>
 				<Header />
-				<slot />
+				<main id="main-content">
+					<slot />
+				</main>
 				<Footer />
 			</section>
 		</section>

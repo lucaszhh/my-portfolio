@@ -6,25 +6,27 @@ import Button from "../shared/Button.astro";
 import Sun from "../icons/Sun.astro";
 const navItems = [
     {
-        title: "Experiencia",
-        label: "experiencia",
-        url: "/#experiencia",
+        label: "Inicio",
+        href: "/#hero",
     },
     {
-        title: "Proyectos",
-        label: "proyectos",
-        url: "/#proyectos",
+        label: "Experiencia",
+        href: "/#experience",
     },
     {
-        title: "Sobre mí",
-        label: "sobre-mi",
-        url: "/#sobre-mi",
+        label: "Proyectos",
+        href: "/#projects",
     },
-/*     {
-        title: "Contacto",
-        label: "contacto",
-        url: "/#contacto",
-    }, */
+    {
+        label: "Sobre mí",
+        href: "/#about",
+    },
+    {
+        label: "Contacto",
+        href: "/#contact",
+    },
+    // Placeholder: se habilitará cuando exista la sección.
+    // { label: "Case Studies", href: "/#case-studies" },
 ];
 ---
 
@@ -40,9 +42,9 @@ const navItems = [
                     <a
                         class="relative block px-2 py-2 transition hover:text-[#63e] dark:hover:text-yellow-200  "
                         aria-label={link.label}
-                        href={link.url}
+                        href={link.href}
                     >
-                        {link.title}
+                        {link.label}
                     </a>
                 ))
             }
@@ -59,7 +61,7 @@ const navItems = [
                 <Sun className="dark:flex hidden" />
             </button>
 
-            <a href="/LucasZarandon.pdf" download="/LucasZarandon.pdf">
+            <a href="/Frontend Engineer - Lucas Zarandon.pdf" download="/Frontend Engineer - Lucas Zarandon.pdf">
                 <Button className="text-primary">
                     <Download slot="before" />
                     Descargar CV

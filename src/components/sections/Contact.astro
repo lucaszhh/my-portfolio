@@ -1,9 +1,32 @@
 ---
 import Button from "../shared/Button.astro";
+import { links } from "../../data/links";
+
+const { email, whatsapp, portfolio } = links;
 ---
 
-<section class="py-8" id="contacto">
+<section class="py-8">
     <h2 class="text-4xl font-bold pb-6">Contacto</h2>
+    <div class="flex flex-col gap-2 pb-6 text-sm">
+        <div class="flex flex-col md:flex-row md:gap-2">
+            <span class="font-semibold">Email:</span>
+            <a
+                class="hover:underline"
+                href={email.href}
+                >{email.label}</a
+            >
+        </div>
+        <div class="flex flex-col md:flex-row md:gap-2">
+            <span class="font-semibold">WhatsApp:</span>
+            <a
+                class="hover:underline"
+                href={whatsapp.href}
+                target={whatsapp.external ? "_blank" : undefined}
+                rel={whatsapp.external ? "noopener noreferrer" : undefined}
+                >{whatsapp.label}</a
+            >
+        </div>
+    </div>
     <div id="form" class="flex flex-col text-md w-full  border rounded-xl p-8 py-4 md:h-[368px] h-[464px]">
         <div class="flex flex-col md:flex-row md:gap-4">
             <div class="flex flex-col w-full md:w-1/2">

@@ -1,139 +1,24 @@
 ---
-import NextJs from "../icons/NextJs.astro";
-import React from "../icons/React.astro";
-import Css from "../icons/Css.astro";
-import Tailwind from "../icons/Tailwind.astro";
-import Html from "../icons/Html.astro";
-import JavaScript from "../icons/JavaScript.astro";
-import TypeScript from "../icons/TypeScript.astro";
-import StyleComponents from "../icons/StyleComponents.astro";
-import ProjectItem from "../cards/ProjectItem.astro";
-import ArrowRight from "../icons/ArrowRight.astro";
+import { homeProjects } from "../../data/projects";
+import type { LinkItem } from "../../data/types";
+import ProjectsCarousel from "../projects/ProjectsCarousel";
 
-const TAGS = {
-    NEXT: {
-        name: "Next.js",
-        class: "bg-neutral-800 text-white",
-        icon: NextJs,
-    },
-    REACT: {
-        name: "React",
-        class: "bg-neutral-800  text-white",
-        icon: React,
-    },
-    CSS: {
-        name: "CSS",
-        class: "bg-neutral-800 text-white",
-        icon: Css,
-    },
-    HTML: {
-        name: "HTML5",
-        class: "bg-neutral-800 text-white",
-        icon: Html,
-    },
-    TAILWIND: {
-        name: "Tailwind CSS",
-        class: "bg-neutral-800  text-white",
-        icon: Tailwind,
-    },
-    JAVASCRIPT: {
-        name: "JavaScript",
-        class: "bg-neutral-800  text-white",
-        icon: JavaScript,
-    },
-    TYPESCRIPT: {
-        name: "TypeScript",
-        class: "bg-neutral-800  text-white",
-        icon: TypeScript,
-    },
-    STYLECOMPONENTS: {
-        name: "Style Components",
-        class: "bg-neutral-800 text-white",
-        icon: StyleComponents,
-    },
-};
+const getLink = (links: LinkItem[] | undefined, label: string) =>
+    links?.find((link) => link.label === label)?.href;
 
-const PROJECTS = [
-    {
-        title: "Digital Money House",
-        subtitle: "Billetera Virtual",
-        link: "https://digitalmoneyhouse.vercel.app/",
-        github: "https://github.com/lucaszhh/digital-money-house",
-        image: "/projects/png/dmh.png",
-        tags: [TAGS.NEXT, TAGS.REACT, TAGS.TYPESCRIPT, TAGS.STYLECOMPONENTS],
-    },
-    {
-        title: "Git con GitHub",
-        subtitle: "Plataforma educativa",
-        link: "https://git-con-github.netlify.app/",
-        github: "https://github.com/lucaszhh/git-con-github",
-        image: "/projects/png/git-con-github.png",
-        tags: [TAGS.HTML, TAGS.CSS, TAGS.JAVASCRIPT],
-    },
-    {
-        title: "Casa del Futuro Godoy Cruz",
-        subtitle: "Landing Page",
-        link: "https://casa-del-futuro.vercel.app/",
-        github: "https://github.com/lucaszhh/casa-del-futuro",
-        image: "/projects/png/cdfnext.png",
-        tags: [TAGS.NEXT, TAGS.REACT, TAGS.TYPESCRIPT, TAGS.CSS],
-        cdf: true,
-        linkPrev: "/projects",
-    },
-];
+const carouselItems = homeProjects.map((project) => ({
+    id: project.id,
+    title: project.name,
+    subtitle: project.subtitle ?? "",
+    image: project.image ?? "",
+    stack: project.stack ?? [],
+    github: getLink(project.links, "GitHub") ?? "",
+    link: getLink(project.links, "Live") ?? "",
+    cdf: project.cdf ?? false,
+}));
 ---
 
-<section class="py-4" id="proyectos">
+<section class="py-4">
     <h2 class="text-4xl font-bold">Proyectos</h2>
 </section>
-<div class="relative">
-    <section class="proyects">
-        {
-            PROJECTS.map(
-                ({
-                    image,
-                    title,
-                    tags,
-                    github,
-                    link,
-                    cdf,
-                    subtitle,
-                }) => (
-                    <ProjectItem
-                        image={image}
-                        title={title}
-                        tags={tags}
-                        github={github}
-                        link={link}
-                        cdf={cdf}
-                        subtitle={subtitle}
-                    />
-                ),
-            )
-        }
-        {
-            /*
-        ADD PAGE PROJECTS
-        <ButtonLink url="/" icon={<ArrowRight/>} description="Ver mas proyectos"/> 
-        */
-        }
-    
-    </section>
-    <div class="absolute right-8 top-[50%] bg-[#63e] text-white rounded-[999px] p-1">
-        <ArrowRight />
-    </div>
-</div>
-
-
-<style>
-    .proyects{
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        overflow-x: scroll;
-        overflow-y: hidden;
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-        gap: 10px;
-    }
-</style>
+<ProjectsCarousel client:visible items={carouselItems} />

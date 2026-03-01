@@ -1,0 +1,91 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { caseStudies } from "../../data/caseStudies";
+import StackBadges from "../../components/case-studies/StackBadges.astro";
+import ButtonSecondary from "../../components/shared/ButtonSecondary.astro";
+
+const caseStudy = caseStudies.find((item) => item.slug === "cumbre");
+const pageTitle = caseStudy
+    ? `Caso de estudio — ${caseStudy.title}`
+    : "Caso de estudio — Cumbre";
+const description = caseStudy?.summary ?? "Caso de estudio de Cumbre.";
+const canonical = "/case-studies/cumbre";
+---
+
+<Layout title={pageTitle} description={description} canonical={canonical}>
+    <section class="py-8">
+        {!caseStudy && (
+            <div class="flex flex-col gap-4">
+                <h1 class="text-3xl font-bold">Caso de estudio no encontrado</h1>
+                <p class="text-sm text-gray-700 dark:text-gray-200">
+                    No pudimos encontrar el caso solicitado.
+                </p>
+                <a href="/" aria-label="Volver al inicio">
+                    <ButtonSecondary>Volver al inicio</ButtonSecondary>
+                </a>
+            </div>
+        )}
+
+        {caseStudy && (
+            <div class="flex flex-col gap-6">
+                <header class="flex flex-col gap-4">
+                    <p class="text-sm font-semibold text-[#63e] dark:text-yellow-200">
+                        Caso de estudio
+                    </p>
+                    <h1 class="text-4xl font-bold">{caseStudy.title}</h1>
+                    <p class="text-base text-gray-700 dark:text-gray-200">
+                        {caseStudy.summary}
+                    </p>
+                    <StackBadges stack={caseStudy.stack} />
+                </header>
+
+                <section class="border rounded-xl p-6">
+                    <h2 class="text-2xl font-bold pb-2">Contexto y problema</h2>
+                    <p class="text-base text-gray-700 dark:text-gray-200">
+                        {caseStudy.problem}
+                    </p>
+                </section>
+
+                <section class="border rounded-xl p-6">
+                    <h2 class="text-2xl font-bold pb-2">Enfoque</h2>
+                    <p class="text-base text-gray-700 dark:text-gray-200">
+                        {caseStudy.approach}
+                    </p>
+                </section>
+
+                <section class="border rounded-xl p-6">
+                    <h2 class="text-2xl font-bold pb-2">Resultados</h2>
+                    <ul class="list-disc pl-5 text-base text-gray-700 dark:text-gray-200">
+                        {caseStudy.results.map((result, index) => (
+                            <li key={`${result}-${index}`}>{result}</li>
+                        ))}
+                    </ul>
+                </section>
+
+                <section class="border rounded-xl p-6">
+                    <h2 class="text-2xl font-bold pb-2">Arquitectura</h2>
+                    <pre class="bg-white dark:bg-black border rounded-lg p-4 text-xs overflow-x-auto">
+{`Cliente
+  └─ UI (Next.js + MUI)
+      ├─ Gestor tipo Notion
+      ├─ Evaluaciones y actividades autocorregibles
+      ├─ ABMs (React Hook Form + Zod)
+      └─ Componentes reutilizables
+
+APIs / Servicios
+  └─ Gestión educativa`}
+                    </pre>
+                </section>
+
+                <section class="flex flex-col sm:flex-row gap-3">
+                    <a href="/#contact" aria-label="Contactar">
+                        <ButtonSecondary>Contactar</ButtonSecondary>
+                    </a>
+                    <a href="/" aria-label="Volver al inicio">
+                        <ButtonSecondary>Volver al inicio</ButtonSecondary>
+                    </a>
+                </section>
+            </div>
+        )}
+    </section>
+</Layout>

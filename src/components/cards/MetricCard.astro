@@ -1,0 +1,38 @@
+---
+import type { LinkItem } from "../../data/types";
+
+const { value, label, description, link } = Astro.props as {
+    value: string;
+    label: string;
+    description?: string;
+    link?: LinkItem;
+};
+---
+
+<article
+    class="drop-shadow-lg bg-white dark:bg-black border rounded-xl p-4 flex flex-col gap-2"
+>
+    <p class="text-3xl font-bold">{value}</p>
+    <p class="text-sm font-semibold text-[#63e] dark:text-yellow-200">
+        {label}
+    </p>
+    {
+        description ? (
+            <p class="text-sm text-gray-700 dark:text-gray-200">
+                {description}
+            </p>
+        ) : null
+    }
+    {
+        link ? (
+            <a
+                class="text-sm font-semibold text-[#63e] dark:text-yellow-200 hover:underline"
+                href={link.href}
+                target={link.external ? "_blank" : undefined}
+                rel={link.external ? "noopener noreferrer" : undefined}
+            >
+                {link.label ?? "Ver más"}
+            </a>
+        ) : null
+    }
+</article>

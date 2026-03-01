@@ -1,0 +1,102 @@
+.carousel {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.viewport {
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.slide {
+  flex: 0 0 66.6667%;
+  display: flex;
+  min-width: 0;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 2px solid;
+  font-weight: 500;
+  background: white;
+  color: black;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+:global(.dark) .button {
+  background: black;
+  color: white;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.dots {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: 2px solid #63e;
+  background: transparent;
+  padding: 0;
+}
+
+.dotSelected {
+  background: #63e;
+}
+
+:global(.dark) .dot {
+  border-color: #fef08a;
+}
+
+:global(.dark) .dotSelected {
+  background: #fef08a;
+}
+
+@media (min-width: 640px) {
+  .slide {
+    flex-basis: 50%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .slide {
+    flex-basis: 33.3333%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button {
+    transition: none;
+  }
+}

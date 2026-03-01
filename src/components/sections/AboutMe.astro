@@ -1,16 +1,14 @@
-<section class="py-8" id="sobre-mi">
+---
+import { profile } from "../../data/profile";
+---
+
+<section class="py-8">
     <h2 class="text-4xl font-bold pb-6">Sobre mi</h2>
     <div class="flex px-8 flex-col items-center justify-between lg:flex-row  border rounded-xl">
         <div class="py-8 text-xl flex flex-col justify-center gap-8 lg:w-3/4">
-            <p>    
-                Desarrollador Front-End especializado en React.js y Next.js, con experiencia creando interfaces interactivas, accesibles y de alto rendimiento. Trabajo con JavaScript, TypeScript, Tailwind, MUI, Shadcn y Astro, optimizando SSR y SEO para maximizar visibilidad y rendimiento.
-            </p>
-            <p>
-                Como educador, he dictado más de 10 cursos certificados, enseñando a más de 200 personas y liderando comunidades de aprendizaje con 250+ miembros activos, combinando claridad, práctica y mentoría para potenciar equipos y desarrolladores.
-            </p>
-            <p>
-                En el ámbito freelance, he desarrollado más de 6 proyectos para clientes, creando soluciones digitales escalables y optimizadas. Actualmente desarrollo Cumbre, una plataforma con 2.500+ usuarios en 6 meses, demostrando mi capacidad para generar impacto real y crecimiento rápido.
-            </p>
+            {profile.about.map((paragraph) => (
+                <p>{paragraph}</p>
+            ))}
         </div>
         <img
             class="object-contain w-[100px] lg:w-[200px] lg:self-end "

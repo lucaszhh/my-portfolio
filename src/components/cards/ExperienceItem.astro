@@ -1,7 +1,7 @@
 ---
 import Button from "../shared/Button.astro";
 import ArrowRight from "../icons/ArrowRight.astro";
-const { title, description, link, date, linkDescription } = Astro.props;
+const { title, description, link, date, linkDescription, linkExternal } = Astro.props;
 ---
 
 <section class="section">
@@ -19,7 +19,7 @@ const { title, description, link, date, linkDescription } = Astro.props;
         <p class="mb-4 text-base font-normal dark:text-gray-200 text-pretty">
             {description}
         </p>
-        <a href={link}>
+        <a href={link} target={linkExternal ? "_blank" : "_self"}>
             <Button>
                 <ArrowRight slot="after" />
                 {linkDescription}

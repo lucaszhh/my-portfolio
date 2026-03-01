@@ -3,82 +3,88 @@ import Github from "../icons/Github.astro";
 import Linkedin from "../icons/Linkedin.astro";
 import Mail from "../icons/Mail.astro";
 import ButtonSecondary from "../shared/ButtonSecondary.astro";
+import { profile } from "../../data/profile";
+import { links } from "../../data/links";
+import { impactMetrics } from "../../data/impact";
+
+const { github, linkedin } = links;
+const impactHighlights = impactMetrics.slice(0, 2);
 ---
 
-<section class="w-full flex flex-col md:grid md:auto-rows-[192px] grid-cols-6 gap-4 py-8 " >
+<section
+    class="w-full flex flex-col md:grid md:auto-rows-[192px] grid-cols-6 gap-4 py-8"
+>
     <section
-        class="drop-shadow-lg bgHero h-96 md:h-auto row-span-2 col-span-6 rounded-xl bg-white relative flex flex-col overflow-hidden border gap-2 justify-end p-6 dark:bg-black xl:col-span-4 lg:p-8 "
+        class="drop-shadow-lg bgHero h-96 md:h-auto row-span-2 col-span-6 rounded-xl bg-white relative flex flex-col overflow-hidden border gap-2 justify-end p-6 dark:bg-black xl:col-span-4 lg:p-8"
     >
-        <div >
-            <h1 class="text-3xl font-bold ">LUCAS ZARAND<span class="text-[#63e] dark:text-yellow-200">Ó</span>N</h1>
-            <h2
-                class="font-semibold text-2xl -translate-y-2"
-            >
-                FrontEnd Developer  <span class="text-[#63e] dark:text-yellow-200">React</span> 
+        <div>
+            <h1 class="text-3xl font-bold">
+                {profile.name}
+            </h1>
+            <h2 class="font-semibold text-2xl -translate-y-2">
+                {profile.role}
             </h2>
         </div>
         <div class="hidden md:flex gap-4 flex-wrap-reverse">
             <a
-                href={"https://www.github.com/lucaszhh"}
-                target="_blank"
-                aria-label="to Github @Lucaszhh"
+                href={github.href}
+                target={github.external ? "_blank" : undefined}
+                rel={github.external ? "noopener noreferrer" : undefined}
+                aria-label={`to ${github.label}`}
             >
                 <ButtonSecondary>
                     <Github slot="before" />
-                    GitHub
+                    {github.label}
                 </ButtonSecondary>
             </a>
             <a
-                href={"https://www.linkedin.com/in/lucas-zarandon/"}
-                target="_blank"
-                aria-label="to linkedin lucas-zarandon"
+                href={linkedin.href}
+                target={linkedin.external ? "_blank" : undefined}
+                rel={linkedin.external ? "noopener noreferrer" : undefined}
+                aria-label={`to ${linkedin.label}`}
             >
                 <ButtonSecondary>
                     <Linkedin slot="before" />
-                    Linkedin
+                    {linkedin.label}
                 </ButtonSecondary>
             </a>
-            <a
-                href={"mailto:lucaszarandon24@gmail.com"}
-                target="_blank"
-                aria-label="to Email lucaszarandon24@gmail.com"
-            >
+            <a href="/#contact" aria-label="Contactar">
                 <ButtonSecondary>
                     <Mail slot="before" />
-                    Mail
+                    Contactar
                 </ButtonSecondary>
             </a>
         </div>
     </section>
-    <div class="md:hidden flex flex-col sm:grid sm:grid-cols-3 gap-4 col-span-6">
+    <div
+        class="md:hidden flex flex-col sm:grid sm:grid-cols-3 gap-4 col-span-6"
+    >
         <a
-            href={"https://www.github.com/lucaszhh"}
-            target="_blank"
-            aria-label="to Github @Lucaszhh"
+            href={github.href}
+            target={github.external ? "_blank" : undefined}
+            rel={github.external ? "noopener noreferrer" : undefined}
+            aria-label={`to ${github.label}`}
         >
             <ButtonSecondary className="w-full justify-start">
                 <Github className="min-w-8" slot="before" />
-                GitHub
+                {github.label}
             </ButtonSecondary>
         </a>
         <a
-            href={"https://www.linkedin.com/in/lucas-zarandon/"}
-            target="_blank"
-            aria-label="to linkedin lucas-zarandon"
+            href={linkedin.href}
+            target={linkedin.external ? "_blank" : undefined}
+            rel={linkedin.external ? "noopener noreferrer" : undefined}
+            aria-label={`to ${linkedin.label}`}
         >
             <ButtonSecondary className="w-full justify-start">
                 <Linkedin className="min-w-8" slot="before" />
-                Linkedin
+                {linkedin.label}
             </ButtonSecondary>
         </a>
-        <a
-            href={"mailto:lucaszarandon24@gmail.com"}
-            target="_blank"
-            aria-label="to Email lucaszarandon24@gmail.com"
-        >
+        <a href="/#contact" aria-label="Contactar">
             <ButtonSecondary className="w-full justify-start">
                 <Mail className="min-w-8" slot="before" />
-                Mail
+                Contactar
             </ButtonSecondary>
         </a>
     </div>
@@ -86,32 +92,55 @@ import ButtonSecondary from "../shared/ButtonSecondary.astro";
         class="drop-shadow-lg min-h-48 md:h-auto row-span-1 col-span-6 rounded-xl bg-white relative flex flex-col overflow-hidden border gap-2 p-4 dark:bg-black xl:col-span-2 lg:px-8"
     >
         <section class="flex flex-col gap-4 justify-center h-full">
-            <h2 class="text-2xl font-bold">Sobre mí</h2>
-            <p class="font-semibold">
-                <span class="text-[#63e] dark:text-yellow-200"
-                    >React / Next.js</span
-                > | TypeScript, Tailwind, MUI | Diseño de Sistemas / <span class="text-[#63e] dark:text-yellow-200"
-                >Design Systems</span
-            > | UI Performance & Accesibilidad | Mentor & Educador
-            </p>
+            <h3 class="text-2xl font-bold">Sobre mí</h3>
+            <p class="font-semibold">{profile.headline}</p>
+            <p class="text-sm font-medium">{profile.subheadline}</p>
         </section>
     </section>
     <section
         class="relative drop-shadow-lg p-6 h-48 md:h-auto row-span-1 col-span-3 rounded-xl bg-white dark:bg-black overflow-hidden border xl:col-span-1 flex items-center justify-center"
     >
-    <svg class="absolute w-[100%] -z-10 opacity-60 text-gray-200 "  xmlns="http://www.w3.org/2000/svg"  width="200"  height="200"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="0.3"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-map-pin"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" /></svg>
+        <svg
+            class="absolute w-[100%] -z-10 opacity-60 text-gray-200"
+            xmlns="http://www.w3.org/2000/svg"
+            width="200"
+            height="200"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="0.3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-map-pin"
+            ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+                d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path
+                d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"
+            ></path></svg
+        >
         <div>
-            <p class="font-semibold text-center">Mendoza, Argentina</p>
+            <p class="font-semibold text-center">{profile.location}</p>
         </div>
     </section>
     <section
         class="drop-shadow-lg row-span-1 col-span-3 h-48 md:h-auto rounded-xl bg-white relative flex flex-col overflow-hidden border gap-2 items-center justify-center dark:bg-black xl:col-span-1"
     >
-    <svg class="absolute w-[100%] -z-10 opacity-60 text-gray-200 " xmlns="http://www.w3.org/2000/svg"  width="200"  height="200"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="0.3"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-chart-line"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 19l16 0" /><path d="M4 15l4 -6l4 2l4 -5l4 4" /></svg>
-        <h2 class="text-6xl font-bold">+3</h2>
-        <p class="font-semibold text-xs">Años de experiencia</p>
+        <svg
+            class="absolute w-[100%] -z-10 opacity-60 text-gray-200"
+            xmlns="http://www.w3.org/2000/svg"
+            width="200"
+            height="200"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="0.3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-chart-line"
+            ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+                d="M4 19l16 0"></path><path d="M4 15l4 -6l4 2l4 -5l4 4"
+            ></path></svg
+        >
+        <p class="text-6xl font-bold">{profile.experienceYears}</p>
+        <p class="font-semibold text-xs">{profile.experienceLabel}</p>
     </section>
 </section>
-
-
-

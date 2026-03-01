@@ -27,6 +27,7 @@ const addConsulta = async ({name, email, message} : Consulta) => {
             email,
             message
         };
+
         await addDoc(collection(db, "consultas"), consultaData);
     } catch (error) {
         console.error("Error adding document: ", error);

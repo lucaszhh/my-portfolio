@@ -1,0 +1,15 @@
+---
+const { stack } = Astro.props as { stack: string[] };
+---
+
+<ul class="flex flex-wrap gap-2">
+    {
+        stack.map((item) => (
+            <li>
+                <span class="bg-black text-white dark:bg-white dark:text-black rounded-full text-xs font-semibold py-1 px-3">
+                    {item}
+                </span>
+            </li>
+        ))
+    }
+</ul>

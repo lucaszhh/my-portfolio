@@ -1,0 +1,22 @@
+---
+import { impactMetrics } from "../../data/impact";
+import MetricCard from "../cards/MetricCard.astro";
+---
+
+<section class="py-8">
+    <h2 class="text-4xl font-bold pb-2">Impacto en Producción</h2>
+    <p class="text-sm text-gray-700 dark:text-gray-200 pb-6">
+        Métricas y resultados en plataformas reales.
+    </p>
+    <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {impactMetrics.map((metric) => (
+            <MetricCard
+                key={metric.id}
+                value={metric.value}
+                label={metric.label}
+                description={metric.description}
+                link={metric.link}
+            />
+        ))}
+    </div>
+</section>
