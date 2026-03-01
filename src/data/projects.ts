@@ -13,12 +13,6 @@ const liveLink = (href: string): LinkItem => ({
   external: true,
 });
 
-const githubLink = (href: string): LinkItem => ({
-  label: "GitHub",
-  href,
-  external: true,
-});
-
 export const projects: PortfolioProject[] = [
   {
     id: "oro-negro",

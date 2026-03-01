@@ -2,7 +2,7 @@
 import Button from "../shared/Button.astro";
 import { links } from "../../data/links";
 
-const { email, whatsapp, portfolio } = links;
+const { email, whatsapp } = links;
 ---
 
 <section class="py-8">
@@ -10,11 +10,7 @@ const { email, whatsapp, portfolio } = links;
     <div class="flex flex-col gap-2 pb-6 text-sm">
         <div class="flex flex-col md:flex-row md:gap-2">
             <span class="font-semibold">Email:</span>
-            <a
-                class="hover:underline"
-                href={email.href}
-                >{email.label}</a
-            >
+            <a class="hover:underline" href={email.href}>{email.label}</a>
         </div>
         <div class="flex flex-col md:flex-row md:gap-2">
             <span class="font-semibold">WhatsApp:</span>
@@ -27,7 +23,10 @@ const { email, whatsapp, portfolio } = links;
             >
         </div>
     </div>
-    <div id="form" class="flex flex-col text-md w-full  border rounded-xl p-8 py-4 md:h-[368px] h-[464px]">
+    <div
+        id="form"
+        class="flex flex-col text-md w-full border rounded-xl p-8 py-4 md:h-[368px] h-[464px]"
+    >
         <div class="flex flex-col md:flex-row md:gap-4">
             <div class="flex flex-col w-full md:w-1/2">
                 <label for="name"> Nombre </label>
@@ -90,9 +89,7 @@ const { email, whatsapp, portfolio } = links;
         "#messageError",
     ) as HTMLElement | null;
 
-    const form = document.querySelector(
-        "#form",
-    ) as HTMLElement | null;
+    const form = document.querySelector("#form") as HTMLElement | null;
 
     function validateForm() {
         let isValid = true;
@@ -141,8 +138,9 @@ const { email, whatsapp, portfolio } = links;
                     name: inputName.value,
                     email: inputEmail.value,
                     message: inputMessage.value,
-                })
-                form && (form.innerHTML = `
+                });
+                form &&
+                    (form.innerHTML = `
                 <div class="flex flex-col h-full items-center justify-center">
                     <h2 class="text-xl">¡Gracias por tu mensaje!</h2>
                 <p class="text-center ">te responderé lo más pronto posible.</p>
