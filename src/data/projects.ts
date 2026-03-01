@@ -77,7 +77,7 @@ export const projects: PortfolioProject[] = [
       liveLink("https://digitalmoneyhouse.vercel.app/"),
     ],
     image: "/projects/png/dmh.png",
-    showOnHome: true,
+    showOnHome: false,
   },
   {
     id: "git-con-github",
@@ -92,7 +92,7 @@ export const projects: PortfolioProject[] = [
       liveLink("https://git-con-github.netlify.app/"),
     ],
     image: "/projects/png/git-con-github.png",
-    showOnHome: true,
+    showOnHome: false,
   },
   {
     id: "casa-del-futuro",
@@ -107,7 +107,7 @@ export const projects: PortfolioProject[] = [
       liveLink("https://casadelfuturogc.netlify.app/"),
     ],
     image: "/projects/png/cdfnext.png",
-    showOnHome: true,
+    showOnHome: false,
   },
 ];
 
