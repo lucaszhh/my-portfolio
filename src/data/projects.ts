@@ -15,6 +15,23 @@ const liveLink = (href: string): LinkItem => ({
 
 export const projects: PortfolioProject[] = [
   {
+    id: "onaf",
+    name: "ONAF · Universidad del Aconcagua",
+    year: "2026",
+    subtitle: "University research observatory",
+    description: [
+      "Security overhaul of the production WordPress site: PHP 7.4 → 8.3, SQL injection fix and security headers.",
+      "Institutional contact form with anti-spam protection and MySQL persistence.",
+      "New headless SPA in progress (React 19, Vite, Tailwind v4) with Playwright E2E tests.",
+    ],
+    stack: ["WordPress", "PHP", "React", "TypeScript", "Playwright"],
+    image: "/projects/onaf.png",
+    links: [
+      liveLink("https://onaf.uda.edu.ar/"),
+    ],
+    showOnHome: true,
+  },
+  {
     id: "oro-negro",
     name: "Oro Negro",
     year: "2025",
