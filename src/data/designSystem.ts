@@ -6,7 +6,7 @@ type Capability = {
 export const designSystem = {
     title: "Design System & Component Library",
     subtitle:
-        "Sistema modular con patrones consistentes, foco en escalabilidad y calidad.",
+        "Design System MxM, construido desde cero: 46 componentes React, 116 íconos y 184 design tokens sincronizados desde Figma, documentado en Storybook, con 140+ tests y publicado como paquetes npm.",
     capabilities: [
         {
             title: "Componentes base",

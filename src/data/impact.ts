@@ -4,7 +4,7 @@ export const impactMetrics: Metric[] = [
   {
     id: "mxm-users",
     value: "Mendoza por Mí",
-    label: "300k+ usuarios",
+    label: "600k+ usuarios",
     description:
       "Plataforma pública provincial integrada con organismos estatales.",
 /*     link: {
@@ -15,8 +15,8 @@ export const impactMetrics: Metric[] = [
   {
     id: "cumbre-users",
     value: "Cumbre",
-    label: "10k+ estudiantes",
-    description: "Más de 400 instituciones educativas en Cumbre.",
+    label: "400+ instituciones",
+    description: "Plataforma educativa de idiomas construida desde cero.",
 /*     link: {
       label: "Caso de estudio",
       href: "/case-studies/cumbre",
@@ -37,13 +37,13 @@ export const impactMetrics: Metric[] = [
   {
     id: "design-system",
     value: "Design System",
-    label: "componentes reutilizables",
-    description: "Consistencia visual y escalabilidad.",
+    label: "46 componentes · 184 tokens",
+    description: "De la biblioteca en Figma al código: Storybook, 140+ tests y paquetes npm.",
   },
   {
-    id: "data-quality",
-    value: "TanStack Query + Zod",
-    label: "datos confiables",
-    description: "Estado asincrónico y validación robusta.",
+    id: "ai-workflow",
+    value: "IA aplicada",
+    label: "16 skills · 9 pipelines",
+    description: "Flujo de desarrollo asistido por IA que el equipo usa a diario.",
   },
 ];

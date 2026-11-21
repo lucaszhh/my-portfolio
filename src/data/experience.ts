@@ -11,6 +11,9 @@ export const experiences: ExperienceItem[] = [
       "Lideré la migración del frontend desde Vite hacia Next.js, mejorando arquitectura, rendimiento y mantenibilidad.",
       "Definí la arquitectura de consumo de APIs, manejo de estados asincrónicos y control de errores.",
       "Implementé autenticación y sesiones mediante Keycloak, con control de acceso robusto.",
+      "Construí desde cero el Design System MxM: 46 componentes, 184 design tokens sincronizados desde Figma, Storybook y paquetes npm.",
+      "Diseñé y mantengo el flujo de desarrollo asistido por IA que el equipo usa a diario: 16 skills y 9 pipelines de subagentes.",
+      "Desarrollé endpoints en NestJS y LoopBack, y administro el despliegue on-premise del frontend (Docker, Nginx, HAProxy).",
       "Revisé PRs y definí estándares técnicos para integraciones de equipos externos.",
     ],
     stack: [
@@ -22,6 +25,9 @@ export const experiences: ExperienceItem[] = [
       "React Hook Form",
       "Zod",
       "Keycloak",
+      "Storybook",
+      "NestJS",
+      "Docker",
     ],
     link: {
       label: "Conocé Mendoza x Mí",
@@ -59,13 +65,14 @@ export const experiences: ExperienceItem[] = [
     id: "freelance",
     role: "Frontend Engineer & Product Builder",
     company: "Freelance",
-    period: "2023 — Presente",
+    period: "2024 — Presente",
     bullets: [
+      "ONAF · Universidad del Aconcagua: puesta al día de seguridad del sitio (PHP 8.3, corrección de SQL injection, security headers) y nueva plataforma headless en React 19.",
       "Desarrollo soluciones web end-to-end participando en discovery, arquitectura y entrega.",
       "Construyo interfaces reutilizables con React, Astro, TypeScript y Shadcn/ui.",
       "Integro APIs y despliego aplicaciones en producción para clientes.",
     ],
-    stack: ["React", "Astro", "TypeScript", "Shadcn/ui"],
+    stack: ["React", "Astro", "TypeScript", "Shadcn/ui", "WordPress", "Playwright"],
     link: {
       label: "Ver proyectos",
       href: "#projects",
@@ -75,10 +82,10 @@ export const experiences: ExperienceItem[] = [
   {
     id: "docencia",
     role: "Docente de Programación",
-    company: "UTN / Casa del Futuro",
+    company: "Municipalidad de Godoy Cruz",
     period: "2022 — 2024",
     bullets: [
-      "Diseñé y dicté cursos certificados de desarrollo web para 400+ estudiantes.",
+      "Diseñé y dicté 4 cursos de desarrollo web certificados por la UTN, con 400+ estudiantes.",
       "Creé material didáctico y ejercicios prácticos orientados a proyectos reales.",
       "Lideré comunidades de aprendizaje con más de 200 estudiantes activos.",
     ],
