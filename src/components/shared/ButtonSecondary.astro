@@ -1,16 +1,18 @@
 ---
-const { className, onClick } = Astro.props
+// Visual-only button: always rendered inside an <a>, so it must not be a <button>.
+interface Props {
+    className?: string;
+}
+const { className = "" } = Astro.props;
 ---
 
-<button
-    aria-label="description"
-    onclick={onClick}
-    class=`flex items-center border-2 font-medium bg-white dark:bg-black dark:text-white px-3 py-2 rounded-lg text-black gap-2 active:scale-[1.1] transition-transform duration-300 ${className}`
+<span
+    class:list={[
+        "inline-flex h-11 items-center gap-2 rounded-md border border-line px-5 text-sm font-medium text-fg transition hover:border-fg/30 hover:bg-fg/[0.04] active:scale-[0.98]",
+        className,
+    ]}
 >
     <slot name="before" />
-    <span class="text-sm font-bold flex-1">
-        <slot />
-    </span>
-
+    <slot />
     <slot name="after" />
-</button>
+</span>

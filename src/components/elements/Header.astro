@@ -1,100 +1,85 @@
 ---
-import Avatar from "../shared/Avatar.astro";
-import Download from "../icons/Download.astro";
-import Moon from "../icons/Moon.astro";
-import Button from "../shared/Button.astro";
-import Sun from "../icons/Sun.astro";
 const navItems = [
-    {
-        label: "Home",
-        href: "/#hero",
-    },
-    {
-        label: "Experience",
-        href: "/#experience",
-    },
-    {
-        label: "Projects",
-        href: "/#projects",
-    },
-    {
-        label: "About",
-        href: "/#about",
-    },
-    {
-        label: "Contact",
-        href: "/#contact",
-    },
-    // Placeholder: se habilitará cuando exista la sección.
-    // { label: "Case Studies", href: "/#case-studies" },
+    { label: "Work", href: "/#work" },
+    { label: "Experience", href: "/#experience" },
+    { label: "About", href: "/#about" },
+    { label: "Contact", href: "/#contact" },
 ];
+const cvHref = "/Frontend Engineer - Lucas Zarandon.pdf";
 ---
 
-<header class="container flex flex-col justify-center items-center w-full">
-    <section
-        class="navegation fixed top-4 z-10 flex items-center justify-center  mx-auto mt-4 "
-    >
-        <nav
-            class="flex px-3 text-sm font-medium rounded-full  justify-center items-center"
+<header
+    class="sticky top-0 z-40 -mx-5 border-b border-line/0 px-5 sm:-mx-8 sm:px-8 header"
+>
+    <div class="flex h-16 items-center justify-between gap-4">
+        <a
+            href="/"
+            class="group flex items-center gap-2 font-mono text-sm font-medium text-fg"
+            aria-label="Lucas Zarandón, home"
         >
-            {
-                navItems.map((link) => (
-                    <a
-                        class="relative block px-2 py-2 transition hover:text-[#63e] dark:hover:text-yellow-200  "
-                        aria-label={link.label}
-                        href={link.href}
-                    >
-                        {link.label}
-                    </a>
-                ))
-            }
-        </nav>
-    </section>
-    <nav class="flex w-full my-4 text-xl justify-between">
-        <Avatar />
-        <div class="flex items-center justify-center gap-2">
-            <button
-                data-switch-theme
-                class="flex justify-between items-center border-2 font-medium bg-white px-3 py-2 rounded-lg text-black gap-2 active:scale-[1.1] transition-transform duration-300"
+            <span
+                class="grid size-7 place-items-center rounded-md border border-line bg-raised text-[13px] transition-colors group-hover:border-accent/60"
+                >lz</span
             >
-                <Moon className="dark:hidden" />
-                <Sun className="dark:flex hidden" />
-            </button>
+            <span class="hidden text-muted sm:inline">lucas zarandón</span>
+        </a>
 
-            <a href="/Frontend Engineer - Lucas Zarandon.pdf" download="/Frontend Engineer - Lucas Zarandon.pdf">
-                <Button className="text-primary">
-                    <Download slot="before" />
-                    Download CV
-                </Button>
+        <nav aria-label="Main" class="min-w-0">
+            <ul class="flex items-center gap-0 text-[13px] sm:gap-1 sm:text-sm">
+                {
+                    navItems.map((item) => (
+                        <li class:list={[item.label === "Experience" && "max-[400px]:hidden"]}>
+                            <a
+                                href={item.href}
+                                data-nav-link
+                                class="nav-link rounded-md px-2 py-1.5 text-muted transition-colors duration-200 hover:text-fg sm:px-3"
+                            >
+                                {item.label}
+                            </a>
+                        </li>
+                    ))
+                }
+            </ul>
+        </nav>
+
+        <div class="flex shrink-0 items-center gap-1.5 sm:gap-2">
+            <button
+                type="button"
+                data-switch-theme
+                class="grid size-9 place-items-center rounded-md border border-line text-muted transition hover:border-fg/30 hover:text-fg active:scale-95"
+                aria-label="Toggle color theme"
+            >
+                <svg class="hidden size-4 dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+                </svg>
+                <svg class="size-4 dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"></path>
+                </svg>
+            </button>
+            <a
+                href={cvHref}
+                download="Lucas Zarandon - Frontend Engineer.pdf"
+                class="inline-flex h-9 items-center gap-2 rounded-md bg-fg px-2.5 text-sm sm:px-3.5 font-medium text-bg transition hover:bg-fg/85 active:scale-[0.98]"
+            >
+                <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 4v11M7 10l5 5 5-5M5 20h14"></path>
+                </svg>
+                <span class="sr-only sm:not-sr-only">CV</span>
             </a>
         </div>
-    </nav>
+    </div>
 </header>
 
-
 <style>
-    nav {
-        animation: nav-shadown 1s linear both;
-        animation-timeline: scroll();
-        animation-range: 0 100px;
+    .header {
+        background: rgb(var(--bg) / 0.72);
+        backdrop-filter: blur(12px) saturate(140%);
+        -webkit-backdrop-filter: blur(12px) saturate(140%);
+        border-bottom-color: rgb(var(--line) / 0.6);
     }
-
-    nav {
-        @apply dark:bg-gray-800/90 bg-white/50;
-    }
-
-    @keyframes nav-shadown {
-        0% {
-            @apply dark:bg-gray-800/0 bg-white/0;
-        }
-        to {
-            @apply shadow-lg ring-1 backdrop-blur ring-white/10;
-        }
-    }
-
-    @media (max-width: 1000px) {
-        .navegation{
-            display: none;
-        }
+    .nav-link[data-active] {
+        color: rgb(var(--fg));
+        background: rgb(var(--fg) / 0.06);
     }
 </style>

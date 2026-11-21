@@ -1,24 +1,62 @@
 ---
+import SectionHeading from "../shared/SectionHeading.astro";
+import Chip from "../shared/Chip.astro";
 import { homeProjects } from "../../data/projects";
-import type { LinkItem } from "../../data/types";
-import ProjectsCarousel from "../projects/ProjectsCarousel";
 
-const getLink = (links: LinkItem[] | undefined, label: string) =>
-    links?.find((link) => link.label === label)?.href;
-
-const carouselItems = homeProjects.map((project) => ({
-    id: project.id,
-    title: project.name,
-    subtitle: project.subtitle ?? "",
-    image: project.image ?? "",
-    stack: project.stack ?? [],
-    github: getLink(project.links, "GitHub") ?? "",
-    link: getLink(project.links, "Live") ?? "",
-    cdf: project.cdf ?? false,
-}));
+const builds = homeProjects.filter((project) => project.id !== "onaf");
+const liveHref = (links?: { label: string; href: string }[]) =>
+    links?.find((link) => link.label === "Live")?.href;
 ---
 
-<section class="py-4">
-    <h2 class="text-4xl font-bold">Projects</h2>
-</section>
-<ProjectsCarousel client:visible items={carouselItems} />
+<SectionHeading
+    index="05"
+    label="freelance builds"
+    title="Small teams, real customers."
+    lede="End-to-end products for local businesses: booking flows, payments and fast marketing sites."
+/>
+
+<ul class="grid gap-4 md:grid-cols-3">
+    {
+        builds.map((project, index) => {
+            const href = liveHref(project.links);
+            return (
+                <li data-reveal style={`--i:${index}`}>
+                    <a
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="group flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-surface/70 transition duration-300 hover:-translate-y-0.5 hover:border-fg/20 active:translate-y-0"
+                    >
+                        {project.image && (
+                            <div class="aspect-[4/3] overflow-hidden border-b border-line bg-raised">
+                                <img
+                                    src={project.image}
+                                    alt={`Screenshot of ${project.name}`}
+                                    loading="lazy"
+                                    decoding="async"
+                                    width="1920"
+                                    height="1440"
+                                    class="size-full object-cover object-top transition duration-500 ease-out group-hover:scale-[1.03]"
+                                />
+                            </div>
+                        )}
+                        <div class="flex flex-1 flex-col gap-3 p-5">
+                            <div class="flex items-baseline justify-between gap-3">
+                                <h3 class="text-lg font-semibold tracking-tight text-fg">{project.name}</h3>
+                                <span class="font-mono text-xs text-subtle tabular">{project.year}</span>
+                            </div>
+                            <p class="text-sm text-muted">{project.subtitle}</p>
+                            <p class="text-sm leading-relaxed text-muted">{project.description[0]}</p>
+                            <ul class="mt-auto flex flex-wrap gap-1.5 pt-2" aria-label="Stack">
+                                {(project.stack ?? []).map((label) => <Chip label={label} />)}
+                            </ul>
+                            <span class="font-mono text-xs text-fg/80 transition-colors group-hover:text-accent">
+                                visit site ↗
+                            </span>
+                        </div>
+                    </a>
+                </li>
+            );
+        })
+    }
+</ul>

@@ -1,144 +1,115 @@
 ---
-import Github from "../icons/Github.astro";
-import Linkedin from "../icons/Linkedin.astro";
-import Mail from "../icons/Mail.astro";
-import ButtonSecondary from "../shared/ButtonSecondary.astro";
-import { profile } from "../../data/profile";
 import { links } from "../../data/links";
 
-const { github, linkedin } = links;
+const { github, linkedin, email } = links;
+
+const metrics = [
+    { value: "600k+", label: "users on Mendoza por Mí", token: "--scale" },
+    { value: "46", label: "components in the MxM Design System", token: "--ds" },
+    { value: "16", label: "agent skills my team uses daily", token: "--ai" },
+    { value: "4+", label: "years shipping production frontends", token: "--exp" },
+];
 ---
 
-<section
-    class="w-full flex flex-col md:grid md:auto-rows-[192px] grid-cols-6 gap-4 py-8"
->
-    <section
-        class="drop-shadow-lg bgHero h-96 md:h-auto row-span-2 col-span-6 rounded-xl bg-white relative flex flex-col overflow-hidden border gap-2 justify-end p-6 dark:bg-black xl:col-span-4 lg:p-8"
-    >
-        <div>
-            <h1 class="text-3xl font-bold">
-                {profile.name}
+<div class="pb-16 pt-14 md:pb-24 md:pt-24">
+    <div class="grid items-end gap-12 md:grid-cols-[1fr_auto]">
+        <div class="max-w-3xl">
+            <p class="eyebrow flex flex-wrap items-center gap-x-3 gap-y-1" data-reveal>
+                <span>// frontend engineer</span>
+                <span aria-hidden="true">·</span>
+                <span>mendoza, AR</span>
+                <span aria-hidden="true">·</span>
+                <span class="inline-flex items-center gap-1.5 text-accent">
+                    <span class="relative flex size-1.5">
+                        <span class="absolute inline-flex size-full animate-ping rounded-full bg-accent opacity-60 motion-reduce:animate-none"></span>
+                        <span class="relative inline-flex size-1.5 rounded-full bg-accent"></span>
+                    </span>
+                    open to remote roles
+                </span>
+            </p>
+
+            <h1
+                class="mt-6 text-[2.6rem] font-semibold leading-[1.02] tracking-tightest text-fg sm:text-6xl md:text-7xl"
+                data-reveal
+                style="--i:1"
+            >
+                I build design systems and production frontends for <span class="text-accent">600k+</span> users.
             </h1>
-            <h2 class="font-semibold text-2xl -translate-y-2">
-                {profile.role}
-            </h2>
+
+            <p class="mt-6 max-w-prose text-lg leading-relaxed text-muted" data-reveal style="--i:2">
+                Frontend engineer at Necta, working on Mendoza por Mí, the citizen services platform of the Province of Mendoza.
+                I care about architecture, consistent interfaces and AI-assisted engineering that actually ships.
+            </p>
+
+            <div class="mt-9 flex flex-wrap items-center gap-3" data-reveal style="--i:3">
+                <a
+                    href="#work"
+                    class="inline-flex h-11 items-center gap-2 rounded-md bg-accent px-5 text-sm font-medium text-accent-fg transition hover:brightness-110 active:scale-[0.98]"
+                >
+                    See selected work
+                    <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"></path></svg>
+                </a>
+                <a
+                    href={email.href}
+                    class="inline-flex h-11 items-center rounded-md border border-line px-5 text-sm font-medium text-fg transition hover:border-fg/30 hover:bg-fg/[0.04] active:scale-[0.98]"
+                >
+                    Get in touch
+                </a>
+                <span class="mx-1 hidden h-5 w-px bg-line sm:block" aria-hidden="true"></span>
+                <a href={github.href} target="_blank" rel="noopener noreferrer" class="px-2 py-2 text-sm text-muted transition-colors hover:text-fg">GitHub ↗</a>
+                <a href={linkedin.href} target="_blank" rel="noopener noreferrer" class="px-2 py-2 text-sm text-muted transition-colors hover:text-fg">LinkedIn ↗</a>
+            </div>
         </div>
-        <div class="hidden md:flex gap-4 flex-wrap-reverse">
-            <a
-                href={github.href}
-                target={github.external ? "_blank" : undefined}
-                rel={github.external ? "noopener noreferrer" : undefined}
-                aria-label={`to ${github.label}`}
-            >
-                <ButtonSecondary>
-                    <Github slot="before" />
-                    {github.label}
-                </ButtonSecondary>
-            </a>
-            <a
-                href={linkedin.href}
-                target={linkedin.external ? "_blank" : undefined}
-                rel={linkedin.external ? "noopener noreferrer" : undefined}
-                aria-label={`to ${linkedin.label}`}
-            >
-                <ButtonSecondary>
-                    <Linkedin slot="before" />
-                    {linkedin.label}
-                </ButtonSecondary>
-            </a>
-            <a href="/#contact" aria-label="Contact">
-                <ButtonSecondary>
-                    <Mail slot="before" />
-                    Contact
-                </ButtonSecondary>
-            </a>
-        </div>
-    </section>
-    <div
-        class="md:hidden flex flex-col sm:grid sm:grid-cols-3 gap-4 col-span-6"
-    >
-        <a
-            href={github.href}
-            target={github.external ? "_blank" : undefined}
-            rel={github.external ? "noopener noreferrer" : undefined}
-            aria-label={`to ${github.label}`}
-        >
-            <ButtonSecondary className="w-full justify-start">
-                <Github className="min-w-8" slot="before" />
-                {github.label}
-            </ButtonSecondary>
-        </a>
-        <a
-            href={linkedin.href}
-            target={linkedin.external ? "_blank" : undefined}
-            rel={linkedin.external ? "noopener noreferrer" : undefined}
-            aria-label={`to ${linkedin.label}`}
-        >
-            <ButtonSecondary className="w-full justify-start">
-                <Linkedin className="min-w-8" slot="before" />
-                {linkedin.label}
-            </ButtonSecondary>
-        </a>
-        <a href="/#contact" aria-label="Contact">
-            <ButtonSecondary className="w-full justify-start">
-                <Mail className="min-w-8" slot="before" />
-                Contact
-            </ButtonSecondary>
-        </a>
+
+        <figure class="portrait relative mx-auto w-56 sm:w-64 md:mx-0 md:w-72" data-reveal style="--i:2">
+            <div class="relative aspect-[4/5] overflow-hidden rounded-2xl border border-line bg-surface">
+                <div class="portrait-grid absolute inset-0" aria-hidden="true"></div>
+                <img
+                    src="/me.png"
+                    alt="Portrait of Lucas Zarandón"
+                    width="560"
+                    height="700"
+                    class="absolute bottom-0 left-1/2 h-[94%] w-auto max-w-none -translate-x-1/2 object-contain object-bottom"
+                    fetchpriority="high"
+                />
+            </div>
+            <figcaption class="eyebrow mt-3 flex justify-between">
+                <span>lucas.zarandon</span>
+                <span>v2026.11</span>
+            </figcaption>
+        </figure>
     </div>
-    <section
-        class="drop-shadow-lg min-h-48 md:h-auto row-span-1 col-span-6 rounded-xl bg-white relative flex flex-col overflow-hidden border gap-2 p-4 dark:bg-black xl:col-span-2 lg:px-8"
-    >
-        <section class="flex flex-col gap-4 justify-center h-full">
-            <h3 class="text-2xl font-bold">About me</h3>
-            <p class="font-semibold">{profile.headline}</p>
-            <p class="text-sm font-medium">{profile.subheadline}</p>
-        </section>
-    </section>
-    <section
-        class="relative drop-shadow-lg p-6 h-48 md:h-auto row-span-1 col-span-3 rounded-xl bg-white dark:bg-black overflow-hidden border xl:col-span-1 flex items-center justify-center"
-    >
-        <svg
-            class="absolute w-[100%] -z-10 opacity-60 text-gray-200"
-            xmlns="http://www.w3.org/2000/svg"
-            width="200"
-            height="200"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="0.3"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="icon icon-tabler icons-tabler-outline icon-tabler-map-pin"
-            ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
-                d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path
-                d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"
-            ></path></svg
-        >
-        <div>
-            <p class="font-semibold text-center">{profile.location}</p>
-        </div>
-    </section>
-    <section
-        class="drop-shadow-lg row-span-1 col-span-3 h-48 md:h-auto rounded-xl bg-white relative flex flex-col overflow-hidden border gap-2 items-center justify-center dark:bg-black xl:col-span-1"
-    >
-        <svg
-            class="absolute w-[100%] -z-10 opacity-60 text-gray-200"
-            xmlns="http://www.w3.org/2000/svg"
-            width="200"
-            height="200"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="0.3"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="icon icon-tabler icons-tabler-outline icon-tabler-chart-line"
-            ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
-                d="M4 19l16 0"></path><path d="M4 15l4 -6l4 2l4 -5l4 4"
-            ></path></svg
-        >
-        <p class="text-6xl font-bold">{profile.experienceYears}</p>
-        <p class="font-semibold text-xs">{profile.experienceLabel}</p>
-    </section>
-</section>
+
+    <dl class="mt-16 grid grid-cols-2 overflow-hidden rounded-xl border border-line md:mt-24 md:grid-cols-4">
+        {
+            metrics.map((metric, index) => (
+                <div
+                    class:list={[
+                        "flex flex-col gap-2 bg-surface/60 p-5 md:p-6",
+                        index % 2 === 0 && "border-r border-line md:border-r",
+                        index < 2 && "border-b border-line md:border-b-0",
+                        index === 1 && "md:border-r",
+                    ]}
+                    data-reveal
+                    style={`--i:${index}`}
+                >
+                    <dt class="order-2 text-sm leading-snug text-muted">{metric.label}</dt>
+                    <dd class="order-1 m-0 font-mono text-3xl font-medium tracking-tight text-fg tabular md:text-4xl">
+                        {metric.value}
+                    </dd>
+                    <span class="order-3 mt-1 font-mono text-[11px] text-subtle" aria-hidden="true">{metric.token}</span>
+                </div>
+            ))
+        }
+    </dl>
+</div>
+
+<style>
+    .portrait-grid {
+        background-image:
+            linear-gradient(to right, rgb(var(--grid) / 0.07) 1px, transparent 1px),
+            linear-gradient(to bottom, rgb(var(--grid) / 0.07) 1px, transparent 1px),
+            radial-gradient(ellipse 70% 55% at 50% 100%, rgb(var(--accent) / 0.22), transparent 70%);
+        background-size: 24px 24px, 24px 24px, 100% 100%;
+    }
+</style>

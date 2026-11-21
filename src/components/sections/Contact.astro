@@ -1,150 +1,138 @@
 ---
-import Button from "../shared/Button.astro";
+import SectionHeading from "../shared/SectionHeading.astro";
 import { links } from "../../data/links";
 
-const { email, whatsapp } = links;
+const { email, whatsapp, linkedin } = links;
+
+const fieldClass =
+    "w-full rounded-md border border-line bg-bg/60 px-3.5 py-2.5 text-[15px] text-fg placeholder:text-subtle transition focus:border-accent focus:outline-none focus-visible:outline-none focus:ring-2 focus:ring-accent/25 aria-[invalid=true]:border-danger";
 ---
 
-<section class="py-8">
-    <h2 class="text-4xl font-bold pb-6">Contact</h2>
-    <div class="flex flex-col gap-2 pb-6 text-sm">
-        <div class="flex flex-col md:flex-row md:gap-2">
-            <span class="font-semibold">Email:</span>
-            <a class="hover:underline" href={email.href}>{email.label}</a>
+<SectionHeading
+    index="07"
+    label="contact"
+    title="Let's build something useful."
+    lede="Open to remote frontend and full-stack roles, in LATAM and worldwide. I usually reply within a day."
+/>
+
+<div class="grid items-start gap-4 lg:grid-cols-[1fr_1.4fr]">
+    <ul class="grid content-start gap-px overflow-hidden rounded-2xl border border-line bg-line" data-reveal>
+        {
+            [
+                { key: "email", label: email.label, href: email.href },
+                { key: "whatsapp", label: "+54 9 261 382 8489", href: whatsapp.href, external: true },
+                { key: "linkedin", label: "in/lucas-zarandon", href: linkedin.href, external: true },
+            ].map((row) => (
+                <li class="bg-surface">
+                    <a
+                        href={row.href}
+                        target={row.external ? "_blank" : undefined}
+                        rel={row.external ? "noopener noreferrer" : undefined}
+                        class="group flex items-center justify-between gap-4 px-6 py-5 transition-colors hover:bg-raised"
+                    >
+                        <span>
+                            <span class="eyebrow block">{row.key}</span>
+                            <span class="mt-1 block text-fg">{row.label}</span>
+                        </span>
+                        <span class="text-subtle transition group-hover:translate-x-0.5 group-hover:text-accent" aria-hidden="true">→</span>
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+
+    <form id="contact-form" class="rounded-2xl border border-line bg-surface/70 p-6 sm:p-8" novalidate data-reveal style="--i:1">
+        <div class="grid gap-5 sm:grid-cols-2">
+            <div>
+                <label for="name" class="mb-2 block text-sm text-muted">Name</label>
+                <input id="name" name="name" type="text" autocomplete="name" class={fieldClass} aria-describedby="nameError" />
+                <p id="nameError" class="mt-1.5 min-h-5 text-xs text-danger" aria-live="polite"></p>
+            </div>
+            <div>
+                <label for="email" class="mb-2 block text-sm text-muted">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" class={fieldClass} aria-describedby="emailError" />
+                <p id="emailError" class="mt-1.5 min-h-5 text-xs text-danger" aria-live="polite"></p>
+            </div>
         </div>
-        <div class="flex flex-col md:flex-row md:gap-2">
-            <span class="font-semibold">WhatsApp:</span>
-            <a
-                class="hover:underline"
-                href={whatsapp.href}
-                target={whatsapp.external ? "_blank" : undefined}
-                rel={whatsapp.external ? "noopener noreferrer" : undefined}
-                >{whatsapp.label}</a
+        <div class="mt-1">
+            <label for="message" class="mb-2 block text-sm text-muted">Message</label>
+            <textarea id="message" name="message" rows="5" class:list={[fieldClass, "resize-none"]} aria-describedby="messageError"></textarea>
+            <p id="messageError" class="mt-1.5 min-h-5 text-xs text-danger" aria-live="polite"></p>
+        </div>
+        <div class="mt-2 flex flex-col-reverse items-stretch gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <p id="formStatus" class="text-sm text-muted" aria-live="polite"></p>
+            <button
+                id="submitButton"
+                type="submit"
+                class="inline-flex h-11 items-center justify-center gap-2 rounded-md bg-accent px-6 text-sm font-medium text-accent-fg transition hover:brightness-110 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60"
             >
+                Send message
+            </button>
         </div>
-    </div>
-    <div
-        id="form"
-        class="flex flex-col text-md w-full border rounded-xl p-8 py-4 md:h-[368px] h-[464px]"
-    >
-        <div class="flex flex-col md:flex-row md:gap-4">
-            <div class="flex flex-col w-full md:w-1/2">
-                <label for="name"> Name </label>
-                <input
-                    class="border-2 rounded p-1 h-12 active:border-[#63e] focus:border-[#63e]"
-                    type="text"
-                    name="name"
-                    id="name"
-                />
-                <small id="nameError" class="text-red-500 h-6"></small>
-            </div>
-            <div class="flex flex-col w-full md:w-1/2">
-                <label for="email"> Email </label>
-                <input
-                    class="border-2 rounded p-1 h-12 active:border-[#63e] focus:border-[#63e]"
-                    type="email"
-                    name="email"
-                    id="email"
-                />
-                <small id="emailError" class="text-red-500 h-6"></small>
-            </div>
-        </div>
-        <div class="flex flex-col">
-            <label for="message"> Message </label>
-            <textarea
-                class="border-2 rounded p-1 resize-none h-[150px] active:border-[#63e] focus:border-[#63e]"
-                name="message"
-                id="message"></textarea>
-            <small id="messageError" class="text-red-500 h-6"></small>
-            <div class="flex justify-end">
-                <Button
-                    className="w-full md:w-1/4 justify-center self-end"
-                    id="button">Send</Button
-                >
-            </div>
-        </div>
-    </div>
-</section>
+    </form>
+</div>
 
 <script>
     import { addConsulta } from "../../firebase/client";
-    const inputName = document.querySelector(
-        "#name",
-    ) as HTMLInputElement | null;
-    const inputEmail = document.querySelector(
-        "#email",
-    ) as HTMLInputElement | null;
-    const inputMessage = document.querySelector(
-        "#message",
-    ) as HTMLInputElement | null;
-    const button = document.querySelector("#button");
 
-    const nameError = document.querySelector(
-        "#nameError",
-    ) as HTMLElement | null;
-    const emailError = document.querySelector(
-        "#emailError",
-    ) as HTMLElement | null;
-    const messageError = document.querySelector(
-        "#messageError",
-    ) as HTMLElement | null;
+    const form = document.querySelector<HTMLFormElement>("#contact-form");
+    const fields = {
+        name: document.querySelector<HTMLInputElement>("#name"),
+        email: document.querySelector<HTMLInputElement>("#email"),
+        message: document.querySelector<HTMLTextAreaElement>("#message"),
+    };
+    const errors = {
+        name: document.querySelector<HTMLElement>("#nameError"),
+        email: document.querySelector<HTMLElement>("#emailError"),
+        message: document.querySelector<HTMLElement>("#messageError"),
+    };
+    const status = document.querySelector<HTMLElement>("#formStatus");
+    const button = document.querySelector<HTMLButtonElement>("#submitButton");
 
-    const form = document.querySelector("#form") as HTMLElement | null;
+    const setError = (key: keyof typeof fields, message: string) => {
+        const field = fields[key];
+        const error = errors[key];
+        if (error) error.textContent = message;
+        field?.setAttribute("aria-invalid", message ? "true" : "false");
+    };
 
-    function validateForm() {
-        let isValid = true;
+    const validate = () => {
+        const name = fields.name?.value.trim() ?? "";
+        const email = fields.email?.value.trim() ?? "";
+        const message = fields.message?.value.trim() ?? "";
+        setError("name", name ? "" : "Please add your name.");
+        if (!email) setError("email", "Please add your email.");
+        else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) setError("email", "That email doesn't look right.");
+        else setError("email", "");
+        setError("message", message ? "" : "Please write a short message.");
+        return Boolean(name && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) && message);
+    };
 
-        if (
-            !inputName ||
-            !inputEmail ||
-            !inputMessage ||
-            !nameError ||
-            !emailError ||
-            !messageError
-        )
-            return false;
-
-        nameError.textContent = "";
-        emailError.textContent = "";
-        messageError.textContent = "";
-
-        if (inputName.value.trim() === "") {
-            nameError.textContent = "Name is required";
-            isValid = false;
+    form?.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        if (!validate() || !button || !status) {
+            form.querySelector<HTMLElement>('[aria-invalid="true"]')?.focus();
+            return;
         }
-        if (inputEmail.value.trim() === "") {
-            emailError.textContent = "Email is required";
-            isValid = false;
-        } else {
-            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailPattern.test(inputEmail.value)) {
-                emailError.textContent = "Please enter a valid email";
-                isValid = false;
-            }
+        button.disabled = true;
+        button.textContent = "Sending…";
+        status.textContent = "";
+        try {
+            await addConsulta({
+                name: fields.name!.value.trim(),
+                email: fields.email!.value.trim(),
+                message: fields.message!.value.trim(),
+            });
+            form.innerHTML = `
+                <div class="flex min-h-[18rem] flex-col items-start justify-center gap-2" role="status">
+                    <p class="eyebrow">message sent</p>
+                    <p class="text-2xl font-semibold tracking-tight text-fg">Thanks, I got your message.</p>
+                    <p class="text-muted">I'll reply to your email soon.</p>
+                </div>`;
+        } catch {
+            button.disabled = false;
+            button.textContent = "Send message";
+            status.textContent = "Couldn't send the message. Please try again or email me directly.";
         }
-        if (inputMessage.value.trim() === "") {
-            messageError.textContent = "Message is required";
-            isValid = false;
-        }
-
-        return isValid;
-    }
-
-    button &&
-        button.addEventListener("click", (e) => {
-            e.preventDefault();
-            if (validateForm() && inputName && inputEmail && inputMessage) {
-                addConsulta({
-                    name: inputName.value,
-                    email: inputEmail.value,
-                    message: inputMessage.value,
-                });
-                form &&
-                    (form.innerHTML = `
-                <div class="flex flex-col h-full items-center justify-center">
-                    <h2 class="text-xl">Thanks for your message!</h2>
-                <p class="text-center ">I'll get back to you as soon as possible.</p>
-                </div>`);
-            }
-        });
+    });
 </script>

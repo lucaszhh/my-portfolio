@@ -1,0 +1,20 @@
+---
+interface Props {
+    index: string;
+    label: string;
+    title: string;
+    lede?: string;
+}
+
+const { index, label, title, lede } = Astro.props;
+---
+
+<div class="mb-12 grid gap-4 md:mb-16 md:grid-cols-[12rem_1fr] md:gap-8">
+    <p class="eyebrow pt-2" data-reveal>
+        <span class="text-accent">{index}</span> / {label}
+    </p>
+    <div data-reveal style="--i:1">
+        <h2 class="text-3xl font-semibold leading-tight tracking-tight text-fg md:text-[2.75rem]">{title}</h2>
+        {lede && <p class="mt-4 max-w-prose text-base leading-relaxed text-muted md:text-lg">{lede}</p>}
+    </div>
+</div>

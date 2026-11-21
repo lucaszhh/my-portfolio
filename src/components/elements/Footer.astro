@@ -1,39 +1,23 @@
 ---
-import Avatar from "../shared/Avatar.astro";
-import Github from "../icons/Github.astro";
-import Linkedin from "../icons/Linkedin.astro";
-import Mail from "../icons/Mail.astro";
+import { links } from "../../data/links";
+
+const year = new Date().getFullYear();
+const { email, linkedin, github } = links;
 ---
 
-<footer
-    class="flex gap-8 flex-col md:flex-row justify-between items-center border rounded-xl p-8 py-4 mt-8 mb-4"
->
-    <div
-        class="flex items-center gap-4 flex-col md:flex-row text-center md:text-start"
-    >
-        <Avatar />
-        <div class="flex flex-col">
-            <h2 class="text-2xl font-bold gap-4">LUCAS ZARANDÓN</h2>
-            <p>© 2026 Lucas Zarandón. Almost all rights reserved.</p>
-        </div>
-    </div>
-    <div class="flex gap-4">
-        <a
-            href="https://www.linkedin.com/in/lucas-zarandon/"
-            target="_blank"
-            aria-label="to linkedin lucas-zarandon"
-        >
-            <Linkedin />
-        </a>
-        <a
-            href="https://www.github.com/lucaszhh"
-            target="_blank"
-            aria-label="to Github @Lucaszhh"
-        >
-            <Github />
-        </a>
-        <a href="/#contact" aria-label="Go to contact">
-            <Mail />
-        </a>
-    </div>
+<footer class="flex flex-col gap-4 border-t border-line py-10 text-sm text-subtle sm:flex-row sm:items-center sm:justify-between">
+    <p class="font-mono text-xs">
+        © {year} Lucas Zarandón · Built with Astro, Tailwind and Geist
+    </p>
+    <ul class="flex items-center gap-5">
+        <li>
+            <a class="transition-colors hover:text-fg" href={github.href} target="_blank" rel="noopener noreferrer">GitHub</a>
+        </li>
+        <li>
+            <a class="transition-colors hover:text-fg" href={linkedin.href} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </li>
+        <li>
+            <a class="transition-colors hover:text-fg" href={email.href}>Email</a>
+        </li>
+    </ul>
 </footer>

@@ -75,7 +75,7 @@ export const experiences: ExperienceItem[] = [
     stack: ["React", "Astro", "TypeScript", "Shadcn/ui", "WordPress", "Playwright"],
     link: {
       label: "See projects",
-      href: "#projects",
+      href: "#builds",
       external: false,
     },
   },

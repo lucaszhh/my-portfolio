@@ -20,7 +20,7 @@ const canonical = "/case-studies/cumbre";
                     <h1 class="text-3xl font-bold">
                         Case study not found
                     </h1>
-                    <p class="text-sm text-gray-700 dark:text-gray-200">
+                    <p class="text-sm text-muted">
                         We couldn't find the requested case study.
                     </p>
                     <a href="/" aria-label="Back to home">
@@ -34,44 +34,44 @@ const canonical = "/case-studies/cumbre";
             caseStudy && (
                 <div class="flex flex-col gap-6">
                     <header class="flex flex-col gap-4">
-                        <p class="text-sm font-semibold text-[#63e] dark:text-yellow-200">
+                        <p class="text-sm font-semibold text-accent font-mono">
                             Case study
                         </p>
                         <h1 class="text-4xl font-bold">{caseStudy.title}</h1>
-                        <p class="text-base text-gray-700 dark:text-gray-200">
+                        <p class="text-base text-muted">
                             {caseStudy.summary}
                         </p>
                         <StackBadges stack={caseStudy.stack} />
                     </header>
 
-                    <section class="border rounded-xl p-6">
+                    <section class="border border-line bg-surface/70 rounded-2xl p-6">
                         <h2 class="text-2xl font-bold pb-2">
                             Context and problem
                         </h2>
-                        <p class="text-base text-gray-700 dark:text-gray-200">
+                        <p class="text-base text-muted">
                             {caseStudy.problem}
                         </p>
                     </section>
 
-                    <section class="border rounded-xl p-6">
+                    <section class="border border-line bg-surface/70 rounded-2xl p-6">
                         <h2 class="text-2xl font-bold pb-2">Approach</h2>
-                        <p class="text-base text-gray-700 dark:text-gray-200">
+                        <p class="text-base text-muted">
                             {caseStudy.approach}
                         </p>
                     </section>
 
-                    <section class="border rounded-xl p-6">
+                    <section class="border border-line bg-surface/70 rounded-2xl p-6">
                         <h2 class="text-2xl font-bold pb-2">Results</h2>
-                        <ul class="list-disc pl-5 text-base text-gray-700 dark:text-gray-200">
+                        <ul class="list-disc pl-5 text-base text-muted">
                             {caseStudy.results.map((result) => (
                                 <li>{result}</li>
                             ))}
                         </ul>
                     </section>
 
-                    <section class="border rounded-xl p-6">
+                    <section class="border border-line bg-surface/70 rounded-2xl p-6">
                         <h2 class="text-2xl font-bold pb-2">Architecture</h2>
-                        <pre class="bg-white dark:bg-black border rounded-lg p-4 text-xs overflow-x-auto">
+                        <pre class="bg-bg border border-line rounded-lg font-mono p-4 text-xs overflow-x-auto">
                             {`Client
   └─ UI (Next.js + MUI)
       ├─ Notion-like editor

@@ -1,12 +1,13 @@
 ---
-import Layout from "../layouts/Layout.astro"
-import Hero from "../components/sections/Hero.astro"
-import Impact from "../components/sections/Impact.astro"
-import DesignSystem from "../components/sections/DesignSystem.astro"
-import Experience from "../components/sections/Experience.astro"
-import Projects from "../components/sections/Projects.astro"
-import AboutMe from "../components/sections/AboutMe.astro"
-import Contact from "../components/sections/Contact.astro"
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/sections/Hero.astro";
+import Work from "../components/sections/Work.astro";
+import DesignSystem from "../components/sections/DesignSystem.astro";
+import AiWorkflow from "../components/sections/AiWorkflow.astro";
+import Experience from "../components/sections/Experience.astro";
+import Projects from "../components/sections/Projects.astro";
+import AboutMe from "../components/sections/AboutMe.astro";
+import Contact from "../components/sections/Contact.astro";
 ---
 
 <Layout
@@ -14,25 +15,28 @@ import Contact from "../components/sections/Contact.astro"
 	description="Frontend engineer specializing in architecture, design systems and Next.js migrations for production platforms with 600k+ users."
 	canonical="/"
 >
-	<section id="hero">
+	<section id="hero" aria-label="Introduction">
 		<Hero />
 	</section>
-	<section id="impact">
-		<Impact />
+	<section id="work" class="section" >
+		<Work />
 	</section>
-<!-- 	<section id="design-system">
+	<section id="design-system" class="section">
 		<DesignSystem />
-	</section> -->
-	<section id="experience">
-		<Experience/>
 	</section>
-	<section id="projects">
-		<Projects/>
+	<section id="ai" class="section">
+		<AiWorkflow />
 	</section>
-	<section id="about">
+	<section id="experience" class="section">
+		<Experience />
+	</section>
+	<section id="builds" class="section">
+		<Projects />
+	</section>
+	<section id="about" class="section">
 		<AboutMe />
 	</section>
-	<section id="contact">
+	<section id="contact" class="section">
 		<Contact />
 	</section>
 </Layout>

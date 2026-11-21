@@ -1,0 +1,29 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Page not found — Lucas Zarandón" description="This page doesn't exist.">
+	<section class="flex min-h-[70dvh] flex-col justify-center py-24">
+		<p class="eyebrow"><span class="text-accent">404</span> / not found</p>
+		<h1 class="mt-5 max-w-2xl text-5xl font-semibold leading-[1.05] tracking-tightest text-fg md:text-6xl">
+			This route isn't in the spec.
+		</h1>
+		<p class="mt-5 max-w-prose text-lg text-muted">
+			The page you're looking for doesn't exist or was moved.
+		</p>
+		<div class="mt-9 flex flex-wrap gap-3">
+			<a
+				href="/"
+				class="inline-flex h-11 items-center rounded-md bg-accent px-5 text-sm font-medium text-accent-fg transition hover:brightness-110 active:scale-[0.98]"
+			>
+				Back to home
+			</a>
+			<a
+				href="/#work"
+				class="inline-flex h-11 items-center rounded-md border border-line px-5 text-sm font-medium text-fg transition hover:border-fg/30 active:scale-[0.98]"
+			>
+				See selected work
+			</a>
+		</div>
+	</section>
+</Layout>

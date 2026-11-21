@@ -1,28 +1,27 @@
 ---
+import SectionHeading from "../shared/SectionHeading.astro";
 import { profile } from "../../data/profile";
 ---
 
-<section class="py-8">
-    <h2 class="text-4xl font-bold pb-6">About me</h2>
-    <div class="flex px-8 flex-col items-center justify-between lg:flex-row  border rounded-xl">
-        <div class="py-8 text-xl flex flex-col justify-center gap-8 lg:w-3/4">
-            {profile.about.map((paragraph) => (
-                <p>{paragraph}</p>
-            ))}
-        </div>
-        <img
-            class="object-contain w-[100px] lg:w-[200px] lg:self-end "
-            src="/me2.png"
-            alt="Lucas Zarandón with a plant in his hand"
-        />
-    </div>
-</section>
+<SectionHeading index="06" label="about" title="Engineer, former teacher, still explaining things." />
 
-<style>
-    img{
-        filter: drop-shadow(0px 0px #63e)
-    }
-    span{
-        font-weight: bold;
-    }
-</style>
+<div class="grid gap-10 md:grid-cols-[12rem_1fr] md:gap-8">
+    <div class="hidden md:block" aria-hidden="true"></div>
+    <div class="grid items-start gap-10 lg:grid-cols-[1fr_16rem]">
+        <div class="grid max-w-prose gap-5 text-lg leading-relaxed text-muted" data-reveal>
+            {profile.about.map((paragraph) => <p>{paragraph}</p>)}
+        </div>
+        <figure class="w-48 lg:w-full" data-reveal style="--i:1">
+            <div class="overflow-hidden rounded-2xl border border-line bg-surface">
+                <img
+                    src="/me2.png"
+                    alt="Lucas Zarandón holding a small plant"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-full object-cover"
+                />
+            </div>
+            <figcaption class="eyebrow mt-3">mendoza, argentina</figcaption>
+        </figure>
+    </div>
+</div>

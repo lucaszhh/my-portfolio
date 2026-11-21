@@ -1,0 +1,72 @@
+---
+import SectionHeading from "../shared/SectionHeading.astro";
+
+const stages = [
+    { role: "explorer", does: "gathers repo rules, Figma and API contracts" },
+    { role: "architect", does: "writes the spec: modules, contracts, UI states" },
+    { role: "approval", does: "a human signs off before any code", gate: true },
+    { role: "coder", does: "implements exactly what the spec says" },
+    { role: "reviewer", does: "checks conventions, types, a11y and lint" },
+];
+
+const facts = [
+    { value: "16 / 23", label: "agent skills authored" },
+    { value: "9 / 10", label: "subagent pipelines authored" },
+    { value: "daily", label: "used by the team" },
+];
+---
+
+<SectionHeading
+    index="03"
+    label="ai-assisted engineering"
+    title="Agents that follow the spec, not the vibe."
+    lede="I designed and maintain the AI workflow my team uses every day: spec-driven pipelines for Next.js, NestJS and design-system work, improved version after version from team feedback."
+/>
+
+<div class="grid items-start gap-4 lg:grid-cols-[1.3fr_1fr]">
+    <div class="overflow-hidden rounded-2xl border border-line bg-surface/70" data-reveal>
+        <div class="flex items-center gap-2 border-b border-line px-5 py-3">
+            <span class="size-2.5 rounded-full bg-line"></span>
+            <span class="size-2.5 rounded-full bg-line"></span>
+            <span class="size-2.5 rounded-full bg-line"></span>
+            <span class="eyebrow ml-3">pipeline · wf-front-feature</span>
+        </div>
+        <ol class="p-5 font-mono text-[13px] leading-6 sm:p-7">
+            {
+                stages.map((stage, index) => (
+                    <li class="grid grid-cols-[2rem_7rem_1fr] items-baseline gap-2 py-1.5 sm:grid-cols-[2.5rem_8rem_1fr]">
+                        <span class="text-subtle">{String(index + 1).padStart(2, "0")}</span>
+                        <span class:list={[stage.gate ? "text-accent" : "text-fg"]}>
+                            {stage.gate ? "◆ " : "→ "}
+                            {stage.role}
+                        </span>
+                        <span class="font-sans text-sm text-muted">{stage.does}</span>
+                    </li>
+                ))
+            }
+        </ol>
+    </div>
+
+    <div class="flex flex-col gap-4">
+        <dl class="grid gap-px overflow-hidden rounded-2xl border border-line bg-line" data-reveal style="--i:1">
+            {
+                facts.map((fact) => (
+                    <div class="flex items-baseline justify-between gap-4 bg-surface px-6 py-5">
+                        <dt class="text-sm text-muted">{fact.label}</dt>
+                        <dd class="font-mono text-2xl text-fg tabular">{fact.value}</dd>
+                    </div>
+                ))
+            }
+        </dl>
+        <div class="rounded-2xl border border-line bg-surface/70 p-6" data-reveal style="--i:2">
+            <p class="eyebrow mb-3">most shared across the team</p>
+            <ul class="grid gap-2 font-mono text-sm text-fg">
+                <li>/generate-changelog</li>
+                <li>/generate-gitlab-issue-report</li>
+            </ul>
+            <p class="mt-4 text-sm leading-relaxed text-muted">
+                Guardrails keep it reliable: skill linting in CI, project memory, hooks for repo conventions and Jira–GitLab sync.
+            </p>
+        </div>
+    </div>
+</div>

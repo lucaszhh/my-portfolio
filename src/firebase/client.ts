@@ -21,17 +21,8 @@ type Consulta = {
 }
 
 const addConsulta = async ({name, email, message} : Consulta) => {
-    try {
-        const consultaData = {
-            name,
-            email,
-            message
-        };
-
-        await addDoc(collection(db, "consultas"), consultaData);
-    } catch (error) {
-        console.error("Error adding document: ", error);
-    }
+    // Errors propagate so the contact form can show a failure state.
+    await addDoc(collection(db, "consultas"), { name, email, message });
 };
 
 export { addConsulta }

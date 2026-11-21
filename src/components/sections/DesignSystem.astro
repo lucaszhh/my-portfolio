@@ -1,22 +1,100 @@
 ---
+import SectionHeading from "../shared/SectionHeading.astro";
 import { designSystem } from "../../data/designSystem";
+
+const pipeline = [
+    { step: "figma", detail: "published library" },
+    { step: "style dictionary", detail: "184 tokens" },
+    { step: "react", detail: "46 components" },
+    { step: "storybook", detail: "38 stories" },
+    { step: "npm", detail: "gitlab ci" },
+];
+
+const stats = [
+    { value: "46", label: "components" },
+    { value: "116", label: "icons" },
+    { value: "184", label: "design tokens" },
+    { value: "140+", label: "unit tests" },
+];
+
+const swatches = [
+    { name: "surface", className: "bg-surface" },
+    { name: "raised", className: "bg-raised" },
+    { name: "line", className: "bg-line" },
+    { name: "muted", className: "bg-muted" },
+    { name: "fg", className: "bg-fg" },
+    { name: "accent", className: "bg-accent" },
+];
 ---
 
-<section class="py-8">
-    <h2 class="text-4xl font-bold pb-2">{designSystem.title}</h2>
-    <p class="text-sm text-gray-700 dark:text-gray-200 pb-6">
-        {designSystem.subtitle}
-    </p>
-    <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {designSystem.capabilities.map((capability) => (
-            <article
-                class="drop-shadow-lg bg-white dark:bg-black border rounded-xl p-4 flex flex-col gap-2"
-            >
-                <h3 class="text-lg font-semibold">{capability.title}</h3>
-                <p class="text-sm text-gray-700 dark:text-gray-200">
-                    {capability.description}
-                </p>
-            </article>
-        ))}
+<SectionHeading
+    index="02"
+    label="design system"
+    title="One source of truth, from Figma to npm."
+    lede={designSystem.subtitle}
+/>
+
+<div class="grid items-start gap-4 lg:grid-cols-[1.1fr_1fr]">
+    <div class="rounded-2xl border border-line bg-surface/70 p-6 sm:p-8" data-reveal>
+        <p class="eyebrow mb-6">pipeline</p>
+        <ol class="relative grid gap-3">
+            {
+                pipeline.map((item, index) => (
+                    <li class="relative flex items-center gap-4">
+                        <span class="z-10 grid size-8 shrink-0 place-items-center rounded-md border border-line bg-raised font-mono text-xs text-subtle">
+                            {String(index + 1).padStart(2, "0")}
+                        </span>
+                        {index < pipeline.length - 1 && (
+                            <span class="absolute left-4 top-8 h-3 w-px bg-line" aria-hidden="true" />
+                        )}
+                        <div class="flex flex-1 items-baseline justify-between gap-4 border-b border-dashed border-line/80 pb-3">
+                            <span class="font-mono text-sm text-fg">{item.step}</span>
+                            <span class="font-mono text-xs text-subtle">{item.detail}</span>
+                        </div>
+                    </li>
+                ))
+            }
+        </ol>
+
+        <dl class="mt-8 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-line bg-line sm:grid-cols-4">
+            {
+                stats.map((stat) => (
+                    <div class="flex flex-col-reverse bg-bg/80 p-4">
+                        <dt class="mt-1 text-xs text-muted">{stat.label}</dt>
+                        <dd class="font-mono text-2xl text-fg tabular">{stat.value}</dd>
+                    </div>
+                ))
+            }
+        </dl>
     </div>
-</section>
+
+    <div class="flex flex-col gap-4">
+        <div class="rounded-2xl border border-line bg-surface/70 p-6 sm:p-8" data-reveal style="--i:1">
+            <div class="mb-5 flex items-center justify-between">
+                <p class="eyebrow">tokens · this site</p>
+                <p class="eyebrow">color</p>
+            </div>
+            <ul class="grid grid-cols-3 gap-3 sm:grid-cols-6">
+                {
+                    swatches.map((swatch) => (
+                        <li class="flex flex-col gap-2">
+                            <span class:list={["block aspect-square rounded-md border border-line", swatch.className]} />
+                            <span class="font-mono text-[11px] text-subtle">{swatch.name}</span>
+                        </li>
+                    ))
+                }
+            </ul>
+        </div>
+
+        <ul class="grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2" data-reveal style="--i:2">
+            {
+                designSystem.capabilities.map((capability) => (
+                    <li class="bg-surface p-5">
+                        <h3 class="text-sm font-medium text-fg">{capability.title}</h3>
+                        <p class="mt-1 text-sm leading-relaxed text-muted">{capability.description}</p>
+                    </li>
+                ))
+            }
+        </ul>
+    </div>
+</div>
