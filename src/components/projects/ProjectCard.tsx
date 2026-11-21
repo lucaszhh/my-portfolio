@@ -205,7 +205,7 @@ export default function ProjectCard({
         src={image}
         width={500}
         height={500}
-        alt={`Captura de pantalla del proyecto ${title}`}
+        alt={`Screenshot of the ${title} project`}
         onLoad={onImageLoad}
         onError={onImageLoad}
       />
@@ -217,7 +217,7 @@ export default function ProjectCard({
             rel="noopener noreferrer"
             className={`flex w-fit ${buttonClass}`}
           >
-            Ir al sitio web
+            Visit website
             <ArrowRightIcon />
           </a>
         )}

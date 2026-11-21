@@ -31,7 +31,7 @@ const { value, label, description, link } = Astro.props as {
                 target={link.external ? "_blank" : undefined}
                 rel={link.external ? "noopener noreferrer" : undefined}
             >
-                {link.label ?? "Ver más"}
+                {link.label ?? "Learn more"}
             </a>
         ) : null
     }

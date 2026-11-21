@@ -6,31 +6,31 @@ type Capability = {
 export const designSystem = {
     title: "Design System & Component Library",
     subtitle:
-        "Design System MxM, construido desde cero: 46 componentes React, 116 íconos y 184 design tokens sincronizados desde Figma, documentado en Storybook, con 140+ tests y publicado como paquetes npm.",
+        "The MxM Design System, built from scratch: 46 React components, 116 icons and 184 design tokens synced from Figma, documented in Storybook, covered by 140+ tests and shipped as npm packages.",
     capabilities: [
         {
-            title: "Componentes base",
-            description: "Button, Input, Select y variantes con tokens.",
+            title: "Core components",
+            description: "Button, Input, Select and their variants, all driven by tokens.",
         },
         {
             title: "Overlays",
-            description: "Modal, Drawer y Dialog con estados controlados.",
+            description: "Modal, Drawer and Dialog with controlled state.",
         },
         {
-            title: "Tipografía y tokens",
-            description: "Escala tipográfica, espaciado, colores y radios.",
+            title: "Typography and tokens",
+            description: "Type scale, spacing, color and radius tokens.",
         },
         {
-            title: "Formularios",
-            description: "React Hook Form + Zod para validaciones consistentes.",
+            title: "Forms",
+            description: "React Hook Form + Zod for consistent validation.",
         },
         {
-            title: "Manejo de errores",
-            description: "Estados vacíos, loading y fallbacks estandarizados.",
+            title: "Error handling",
+            description: "Standard empty, loading and fallback states.",
         },
         {
-            title: "Accesibilidad",
-            description: "Focus states, aria y navegación por teclado.",
+            title: "Accessibility",
+            description: "Focus states, ARIA and keyboard navigation.",
         },
     ] as Capability[],
 };

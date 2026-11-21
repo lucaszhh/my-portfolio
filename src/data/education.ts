@@ -15,14 +15,14 @@ export const education: EducationItem[] = [
   },
   {
     id: "tecnico-procesos",
-    title: "Técnico en Industria de Procesos",
+    title: "Process Industry Technician (technical secondary degree)",
     org: "4-132 Químicos Argentinos",
     year: "2017",
   },
   {
     id: "utn-docente",
-    title: "Creador y docente de cursos de programación",
-    org: "UTN Sistemas de la Información",
+    title: "Creator and instructor of programming courses",
+    org: "UTN (Universidad Tecnológica Nacional)",
     year: "2023",
   },
   {

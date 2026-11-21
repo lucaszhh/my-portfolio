@@ -4,46 +4,46 @@ export const impactMetrics: Metric[] = [
   {
     id: "mxm-users",
     value: "Mendoza por Mí",
-    label: "600k+ usuarios",
+    label: "600k+ users",
     description:
-      "Plataforma pública provincial integrada con organismos estatales.",
+      "Provincial government platform integrated with state agencies.",
 /*     link: {
-      label: "Caso de estudio",
+      label: "Case study",
       href: "/case-studies/mendoza-por-mi",
     }, */
   },
   {
     id: "cumbre-users",
     value: "Cumbre",
-    label: "400+ instituciones",
-    description: "Plataforma educativa de idiomas construida desde cero.",
+    label: "400+ institutions",
+    description: "Language-learning platform built from scratch.",
 /*     link: {
-      label: "Caso de estudio",
+      label: "Case study",
       href: "/case-studies/cumbre",
     }, */
   },
   {
     id: "migration",
     value: "Vite→Next.js",
-    label: "migración de arquitectura",
-    description: "Mejora de rendimiento y mantenibilidad.",
+    label: "architecture migration",
+    description: "Server rendering and long-term maintainability.",
   },
   {
     id: "auth",
     value: "Keycloak",
-    label: "autenticación y sesiones",
-    description: "Integración con SSO y control de acceso.",
+    label: "authentication and sessions",
+    description: "SSO integrated with official digital signatures.",
   },
   {
     id: "design-system",
     value: "Design System",
-    label: "46 componentes · 184 tokens",
-    description: "De la biblioteca en Figma al código: Storybook, 140+ tests y paquetes npm.",
+    label: "46 components · 184 tokens",
+    description: "From a Figma library to code: Storybook, 140+ tests and npm packages.",
   },
   {
     id: "ai-workflow",
-    value: "IA aplicada",
+    value: "AI workflows",
     label: "16 skills · 9 pipelines",
-    description: "Flujo de desarrollo asistido por IA que el equipo usa a diario.",
+    description: "AI-assisted engineering workflow the team uses daily.",
   },
 ];

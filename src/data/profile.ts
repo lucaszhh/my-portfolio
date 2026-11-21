@@ -1,16 +1,16 @@
 export const profile = {
   name: "LUCAS ZARANDÓN",
   role: "Frontend Engineer",
-  headline: "Arquitectura frontend y Design Systems para productos en producción a gran escala.",
+  headline: "Frontend architecture and design systems for production products at scale.",
   subheadline: "React · Next.js · TypeScript · TanStack Query",
   highlights: [
-    "Migración Vite → Next.js y arquitectura modular",
-    "Design System y librerías de componentes reutilizables",
-    "Plataformas en producción: 600k+ usuarios / 400+ instituciones",
+    "Vite → Next.js migration and modular architecture",
+    "Design systems and reusable component libraries",
+    "Production platforms: 600k+ users / 400+ institutions",
   ],
   location: "Mendoza, Argentina",
   experienceYears: "+4",
-  experienceLabel: "Años de experiencia",
+  experienceLabel: "Years of experience",
   badges: [
     { label: "Next.js" },
     { label: "React" },
@@ -19,8 +19,8 @@ export const profile = {
     { label: "TanStack Query" },
   ],
   about: [
-    "Frontend Engineer especializado en arquitectura de interfaces y construcción de Design Systems escalables. Trabajo principalmente con React, Next.js y TypeScript, diseñando estructuras modulares que priorizan mantenibilidad, rendimiento y consistencia visual en aplicaciones en producción.",
-    "He liderado migraciones de frontend (Vite → Next.js), definido estrategias de consumo de APIs con TanStack Query, validaciones tipadas con Zod y sistemas de autenticación con Keycloak, en una plataforma provincial con más de 600.000 usuarios. También construí su Design System desde cero y diseñé el flujo de desarrollo asistido por IA que el equipo usa a diario.",
-    "Además de mi rol técnico, tengo experiencia formando desarrolladores y liderando comunidades de aprendizaje, lo que me permite comunicar decisiones arquitectónicas con claridad y trabajar de forma colaborativa con equipos multidisciplinarios.",
+    "Frontend engineer focused on interface architecture and scalable design systems. I work mainly with React, Next.js and TypeScript, designing modular structures that prioritize maintainability, performance and visual consistency in production applications.",
+    "On a provincial government platform with 600,000+ users, I led the migration from Vite to Next.js, defined the data-fetching strategy with TanStack Query, typed validation with Zod and Keycloak authentication. I also built its design system from scratch and designed the AI-assisted engineering workflow the team uses daily.",
+    "Before that, I trained 400+ students as a programming instructor. That experience helps me explain architectural decisions clearly and work well with cross-functional teams.",
   ],
 };

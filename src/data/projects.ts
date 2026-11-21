@@ -18,11 +18,11 @@ export const projects: PortfolioProject[] = [
     id: "oro-negro",
     name: "Oro Negro",
     year: "2025",
-    subtitle: "Ticketera de transporte turístico",
+    subtitle: "Tourism transport ticketing",
     description: [
-      "Desarrollo del frontend con Next.js y Shadcn/ui.",
-      "Implementación de flujos de reserva y gestión de tickets.",
-      "Pagos integrados con Mercado Pago.",
+      "Frontend built with Next.js and Shadcn/ui, replacing a legacy WordPress site.",
+      "Booking flows and ticket management.",
+      "Automated Mercado Pago checkout.",
     ],
     stack: ["Next.js", "React", "TypeScript", "Shadcn/ui"],
     image: "/projects/oro-negro.png",
@@ -35,10 +35,10 @@ export const projects: PortfolioProject[] = [
     id: "flores-en-fuego",
     name: "Flores en Fuego",
     year: "2025",
-    subtitle: "Carta digital con backoffice",
+    subtitle: "Digital menu with back office",
     description: [
-      "Backoffice para gestión de productos y categorías.",
-      "Panel administrativo con ABM y flujos vía QR.",
+      "Back office to manage products, categories and prices.",
+      "Admin panel with full CRUD and QR-based access.",
     ],
     stack: ["React", "TypeScript", "Tailwind"],
     links: [
@@ -51,10 +51,10 @@ export const projects: PortfolioProject[] = [
     id: "rincon-del-malbec",
     name: "Rincón del Malbec",
     year: "2025",
-    subtitle: "Reservas y ecommerce para bodega",
+    subtitle: "Bookings and e-commerce for a winery",
     description: [
-      "Sistema de reservas y catálogo de productos.",
-      "UI responsive con Astro, TypeScript y Shadcn/ui.",
+      "Booking system and product catalog with USD payments.",
+      "Responsive UI with Astro, TypeScript and Shadcn/ui.",
     ],
     stack: ["Astro", "TypeScript", "Shadcn/ui"],
     links: [
@@ -67,12 +67,12 @@ export const projects: PortfolioProject[] = [
     id: "digital-money-house",
     name: "Digital Money House",
     year: "2023",
-    subtitle: "Billetera Virtual",
+    subtitle: "Digital wallet",
     description: [
-      "Aplicación financiera con SSR y flujos de onboarding.",
-      "Implementación de UI con Styled Components.",
+      "Fintech app with SSR and onboarding flows.",
+      "UI built with Styled Components.",
     ],
-    stack: ["Next.js", "React", "TypeScript", "Style Components"],
+    stack: ["Next.js", "React", "TypeScript", "Styled Components"],
     links: [
       liveLink("https://digitalmoneyhouse.vercel.app/"),
     ],
@@ -83,9 +83,9 @@ export const projects: PortfolioProject[] = [
     id: "git-con-github",
     name: "Git con GitHub",
     year: "2023",
-    subtitle: "Plataforma educativa",
+    subtitle: "Learning platform",
     description: [
-      "Curso práctico de Git y GitHub para principiantes.",
+      "Hands-on Git and GitHub course for beginners.",
     ],
     stack: ["HTML", "CSS", "JavaScript"],
     links: [
@@ -100,7 +100,7 @@ export const projects: PortfolioProject[] = [
     year: "2023",
     subtitle: "Landing Page",
     description: [
-      "Landing institucional con Next.js y foco en performance.",
+      "Institutional landing page built with Next.js, focused on performance.",
     ],
     stack: ["Next.js", "React", "TypeScript", "CSS"],
     links: [

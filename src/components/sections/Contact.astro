@@ -6,7 +6,7 @@ const { email, whatsapp } = links;
 ---
 
 <section class="py-8">
-    <h2 class="text-4xl font-bold pb-6">Contacto</h2>
+    <h2 class="text-4xl font-bold pb-6">Contact</h2>
     <div class="flex flex-col gap-2 pb-6 text-sm">
         <div class="flex flex-col md:flex-row md:gap-2">
             <span class="font-semibold">Email:</span>
@@ -29,7 +29,7 @@ const { email, whatsapp } = links;
     >
         <div class="flex flex-col md:flex-row md:gap-4">
             <div class="flex flex-col w-full md:w-1/2">
-                <label for="name"> Nombre </label>
+                <label for="name"> Name </label>
                 <input
                     class="border-2 rounded p-1 h-12 active:border-[#63e] focus:border-[#63e]"
                     type="text"
@@ -50,7 +50,7 @@ const { email, whatsapp } = links;
             </div>
         </div>
         <div class="flex flex-col">
-            <label for="message"> Mensaje </label>
+            <label for="message"> Message </label>
             <textarea
                 class="border-2 rounded p-1 resize-none h-[150px] active:border-[#63e] focus:border-[#63e]"
                 name="message"
@@ -59,7 +59,7 @@ const { email, whatsapp } = links;
             <div class="flex justify-end">
                 <Button
                     className="w-full md:w-1/4 justify-center self-end"
-                    id="button">Enviar</Button
+                    id="button">Send</Button
                 >
             </div>
         </div>
@@ -109,21 +109,21 @@ const { email, whatsapp } = links;
         messageError.textContent = "";
 
         if (inputName.value.trim() === "") {
-            nameError.textContent = "El nombre es requerido";
+            nameError.textContent = "Name is required";
             isValid = false;
         }
         if (inputEmail.value.trim() === "") {
-            emailError.textContent = "El correo electrónico es requerido";
+            emailError.textContent = "Email is required";
             isValid = false;
         } else {
             const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailPattern.test(inputEmail.value)) {
-                emailError.textContent = "El correo electrónico no es válido";
+                emailError.textContent = "Please enter a valid email";
                 isValid = false;
             }
         }
         if (inputMessage.value.trim() === "") {
-            messageError.textContent = "El mensaje es requerido";
+            messageError.textContent = "Message is required";
             isValid = false;
         }
 
@@ -142,8 +142,8 @@ const { email, whatsapp } = links;
                 form &&
                     (form.innerHTML = `
                 <div class="flex flex-col h-full items-center justify-center">
-                    <h2 class="text-xl">¡Gracias por tu mensaje!</h2>
-                <p class="text-center ">te responderé lo más pronto posible.</p>
+                    <h2 class="text-xl">Thanks for your message!</h2>
+                <p class="text-center ">I'll get back to you as soon as possible.</p>
                 </div>`);
             }
         });

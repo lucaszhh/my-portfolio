@@ -112,7 +112,7 @@ export default function ProjectsCarousel({ items, options }: Props) {
     <div
       className={styles.carousel}
       aria-roledescription="carousel"
-      aria-label="Proyectos destacados"
+      aria-label="Featured projects"
     >
       <div
         className={styles.viewport}
@@ -148,21 +148,21 @@ export default function ProjectsCarousel({ items, options }: Props) {
             type="button"
             onClick={scrollPrev}
             disabled={!canScrollPrev}
-            aria-label="Anterior"
+            aria-label="Previous"
           >
-            Anterior
+            Previous
           </button>
           <button
             className={styles.button}
             type="button"
             onClick={scrollNext}
             disabled={!canScrollNext}
-            aria-label="Siguiente"
+            aria-label="Next"
           >
-            Siguiente
+            Next
           </button>
         </div>
-        <div className={styles.dots} role="tablist" aria-label="Paginación">
+        <div className={styles.dots} role="tablist" aria-label="Pagination">
           {scrollSnaps.map((_, index) => (
             <button
               key={`dot-${index}`}
@@ -170,7 +170,7 @@ export default function ProjectsCarousel({ items, options }: Props) {
               className={`${styles.dot} ${
                 index === selectedIndex ? styles.dotSelected : ""
               }`}
-              aria-label={`Ir al slide ${index + 1}`}
+              aria-label={`Go to slide ${index + 1}`}
               aria-current={index === selectedIndex ? "true" : undefined}
               onClick={() => emblaApi?.scrollTo(index)}
             />

@@ -6,15 +6,15 @@ export const caseStudies: CaseStudy[] = [
     slug: "mendoza-por-mi",
     title: "Mendoza por Mí",
     summary:
-      "Migración completa de Vite a Next.js para una plataforma pública provincial de alto tráfico.",
+      "Full migration from Vite to Next.js for a high-traffic provincial government platform (600k+ users).",
     problem:
-      "La base frontend requería una arquitectura más escalable, con mejor performance y mantenibilidad.",
+      "The frontend needed a more scalable architecture with better performance and maintainability.",
     approach:
-      "Rediseñé la arquitectura de consumo de APIs, definí estándares de componentes y migré a Next.js con SSR.",
+      "I redesigned the data-fetching architecture, defined component standards and migrated to Next.js with server rendering.",
     results: [
-      "Mejoras de performance y tiempos de carga.",
-      "Arquitectura modular para escalar equipos y features.",
-      "Base sólida para integraciones con organismos estatales.",
+      "A codebase ready for server rendering and faster page loads.",
+      "Modular architecture that scales with teams and features.",
+      "A solid base for integrations with state agencies.",
     ],
     stack: [
       "Next.js",
@@ -31,15 +31,15 @@ export const caseStudies: CaseStudy[] = [
     slug: "cumbre",
     title: "Cumbre",
     summary:
-      "Plataforma educativa construida desde cero con un sistema de componentes y flujos de evaluación complejos.",
+      "Learning platform built from scratch, with its own component system and complex assessment flows.",
     problem:
-      "Se necesitaba un frontend robusto para gestionar contenidos y evaluaciones con múltiples tipos de actividades.",
+      "The product needed a robust frontend to manage content and assessments with many activity types.",
     approach:
-      "Definí la arquitectura del proyecto, diseñé componentes reutilizables y construí ABMs con validaciones.",
+      "I defined the project architecture, designed reusable components and built CRUD flows with validation.",
     results: [
-      "27+ tipos de actividades autocorregibles.",
-      "Consistencia visual en toda la plataforma.",
-      "Escalabilidad para miles de estudiantes y docentes.",
+      "27+ auto-graded activity types.",
+      "Visual consistency across the whole platform.",
+      "Used by 400+ educational institutions.",
     ],
     stack: [
       "Next.js",
@@ -55,14 +55,14 @@ export const caseStudies: CaseStudy[] = [
     slug: "oro-negro",
     title: "Oro Negro",
     summary:
-      "Ticketera para reservas de transporte turístico con flujos de pago integrados.",
+      "Ticketing for tourism transport bookings with integrated payments.",
     problem:
-      "Optimizar el flujo de reservas y la gestión de tickets para un servicio turístico.",
+      "Streamline bookings and ticket management for a tourism service.",
     approach:
-      "Diseñé flujos de reserva, panel de gestión y pasarela de pagos integrada.",
+      "I designed the booking flows, the management panel and the integrated payment gateway.",
     results: [
-      "Checkout más simple y rápido para usuarios.",
-      "Gestión centralizada de tickets y reservas.",
+      "A simpler, faster checkout for customers.",
+      "Centralized ticket and booking management.",
     ],
     stack: ["Next.js", "React", "TypeScript", "Shadcn/ui"],
   },
